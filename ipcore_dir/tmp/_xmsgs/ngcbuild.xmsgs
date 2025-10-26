@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="NgdBuild" num="1342" delta="new" >No bitstream will be generated for this design because bitstream generation is prohibited for core &lt;<arg fmt="%s" index="1">ethernet_trimac_wrapper_1</arg>&gt;.  Please regenerate this core with its full IP license installed.
+</msg>
+
+</messages>
+

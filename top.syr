@@ -1,0 +1,1140 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.01 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.01 secs
+ 
+--> 
+Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/utility.vhd" in Library ethernet_mac.
+Architecture utility of Entity utility is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/crc.vhd" in Library ethernet_mac.
+Architecture crc of Entity crc is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet_types.vhd" in Library ethernet_mac.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim_types.vhd" in Library ethernet_mac.
+Architecture miim_types of Entity miim_types is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/crc32.vhd" in Library ethernet_mac.
+Architecture crc32 of Entity crc32 is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim_registers.vhd" in Library ethernet_mac.
+Architecture miim_registers of Entity miim_registers is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/framing_common.vhd" in Library ethernet_mac.
+Architecture framing_common of Entity framing_common is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/reset_generator.vhd" in Library ethernet_mac.
+Architecture rtl of Entity reset_generator is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/single_signal_synchronizer.vhd" in Library ethernet_mac.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/mii_gmii.vhd" in Library ethernet_mac.
+Architecture rtl of Entity mii_gmii is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/mii_gmii_io.vhd" in Library ethernet_mac.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/framing.vhd" in Library ethernet_mac.
+Architecture rtl of Entity framing is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim.vhd" in Library ethernet_mac.
+Architecture rtl of Entity miim is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim_control.vhd" in Library ethernet_mac.
+Architecture rtl of Entity miim_control is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/single_signal_synchronizer_simple.vhd" in Library ethernet_mac.
+Architecture simple of Entity single_signal_synchronizer is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/mii_gmii_io_simple.vhd" in Library ethernet_mac.
+Architecture simple of Entity mii_gmii_io is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet.vhd" in Library ethernet_mac.
+Architecture rtl of Entity ethernet is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/top.vhd" in Library work.
+Architecture behavioral of Entity top is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <top> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <ethernet> in library <ethernet_mac> (architecture <rtl>) with generics.
+	MIIM_CLOCK_DIVIDER = 20
+	MIIM_DISABLE = false
+	MIIM_PHY_ADDRESS = "00001"
+	MIIM_POLL_WAIT_TICKS = 10000000
+	MIIM_RESET_WAIT_TICKS = 2500000
+
+Analyzing hierarchy for entity <reset_generator> in library <ethernet_mac> (architecture <rtl>) with generics.
+	RESET_TICKS = 1000
+
+Analyzing hierarchy for entity <single_signal_synchronizer> in library <ethernet_mac> (architecture <simple>).
+
+Analyzing hierarchy for entity <mii_gmii> in library <ethernet_mac> (architecture <rtl>).
+
+Analyzing hierarchy for entity <mii_gmii_io> in library <ethernet_mac> (architecture <simple>).
+
+Analyzing hierarchy for entity <framing> in library <ethernet_mac> (architecture <rtl>).
+
+Analyzing hierarchy for entity <miim> in library <ethernet_mac> (architecture <rtl>) with generics.
+	CLOCK_DIVIDER = 20
+
+Analyzing hierarchy for entity <miim_control> in library <ethernet_mac> (architecture <rtl>) with generics.
+	DEBUG_OUTPUT = false
+	POLL_WAIT_TICKS = 10000000
+	RESET_WAIT_TICKS = 2500000
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <top> in library <work> (Architecture <behavioral>).
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 185: Unconnected output port 'mii_tx_er_o' of component 'ethernet'.
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 185: Unconnected output port 'gmii_gtx_clk_o' of component 'ethernet'.
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 185: Unconnected output port 'rgmii_tx_ctl_o' of component 'ethernet'.
+INFO:Xst:2679 - Register <s_tx_enable> in unit <top> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <s_tx_data> in unit <top> has a constant value of 00000000 during circuit operation. The register is replaced by logic.
+Entity <top> analyzed. Unit <top> generated.
+
+Analyzing generic Entity <ethernet> in library <ethernet_mac> (Architecture <rtl>).
+	MIIM_CLOCK_DIVIDER = 20
+	MIIM_DISABLE = false
+	MIIM_PHY_ADDRESS = "00001"
+	MIIM_POLL_WAIT_TICKS = 10000000
+	MIIM_RESET_WAIT_TICKS = 2500000
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet.vhd" line 165: Unconnected output port 'rgmii_tx_ctl_o' of component 'mii_gmii'.
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet.vhd" line 260: Unconnected output port 'debug_fifo_we_o' of component 'miim_control'.
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet.vhd" line 260: Unconnected output port 'debug_fifo_write_data_o' of component 'miim_control'.
+Entity <ethernet> analyzed. Unit <ethernet> generated.
+
+Analyzing generic Entity <reset_generator> in library <ethernet_mac> (Architecture <rtl>).
+	RESET_TICKS = 1000
+Entity <reset_generator> analyzed. Unit <reset_generator> generated.
+
+Analyzing Entity <single_signal_synchronizer> in library <ethernet_mac> (Architecture <simple>).
+Entity <single_signal_synchronizer> analyzed. Unit <single_signal_synchronizer> generated.
+
+Analyzing Entity <mii_gmii> in library <ethernet_mac> (Architecture <rtl>).
+Entity <mii_gmii> analyzed. Unit <mii_gmii> generated.
+
+Analyzing Entity <mii_gmii_io> in library <ethernet_mac> (Architecture <simple>).
+Entity <mii_gmii_io> analyzed. Unit <mii_gmii_io> generated.
+
+Analyzing Entity <framing> in library <ethernet_mac> (Architecture <rtl>).
+WARNING:Xst:1610 - "/home/ise/ISE_146/ethernet/ethernet_mac/framing.vhd" line 206: Width mismatch. <data_out> has a width of 8 bits but assigned expression is 48-bit wide.
+Entity <framing> analyzed. Unit <framing> generated.
+
+Analyzing generic Entity <miim> in library <ethernet_mac> (Architecture <rtl>).
+	CLOCK_DIVIDER = 20
+Entity <miim> analyzed. Unit <miim> generated.
+
+Analyzing generic Entity <miim_control> in library <ethernet_mac> (Architecture <rtl>).
+	DEBUG_OUTPUT = false
+	POLL_WAIT_TICKS = 10000000
+	RESET_WAIT_TICKS = 2500000
+Entity <miim_control> analyzed. Unit <miim_control> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <reset_generator>.
+    Related source file is "/home/ise/ISE_146/ethernet/ethernet_mac/reset_generator.vhd".
+    Found 1-bit register for signal <reset_o>.
+    Found 2-bit register for signal <last_speed>.
+    Found 10-bit up counter for signal <reset_counter>.
+    Found 2-bit comparator not equal for signal <reset_counter$cmp_ne0000> created at line 64.
+    Found 1-bit register for signal <state<0>>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   4 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <reset_generator> synthesized.
+
+
+Synthesizing Unit <single_signal_synchronizer>.
+    Related source file is "/home/ise/ISE_146/ethernet/single_signal_synchronizer_simple.vhd".
+    Found 1-bit register for signal <signal_o>.
+    Found 1-bit register for signal <signal_tmp>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <single_signal_synchronizer> synthesized.
+
+
+Synthesizing Unit <mii_gmii>.
+    Related source file is "/home/ise/ISE_146/ethernet/ethernet_mac/mii_gmii.vhd".
+WARNING:Xst:1305 - Output <rgmii_tx_ctl_o> is never assigned. Tied to value 0.
+WARNING:Xst:647 - Input <rgmii_rx_ctl_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found finite state machine <FSM_0> for signal <rx_state>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 7                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 4                                              |
+    | Clock              | rx_clock_i                (rising_edge)        |
+    | Reset              | rx_reset_i                (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | rx_init                                        |
+    | Power Up State     | rx_init                                        |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_1> for signal <tx_state>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 4                                              |
+    | Clock              | tx_clock_i                (rising_edge)        |
+    | Reset              | tx_reset_i                (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | tx_init                                        |
+    | Power Up State     | tx_init                                        |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <rx_data_o>.
+    Found 1-bit register for signal <rx_frame_o>.
+    Found 1-bit register for signal <mii_tx_en_o>.
+    Found 1-bit register for signal <rx_error_o>.
+    Found 1-bit register for signal <rx_byte_received_o>.
+    Found 8-bit register for signal <mii_txd_o>.
+    Summary:
+	inferred   2 Finite State Machine(s).
+	inferred  20 D-type flip-flop(s).
+Unit <mii_gmii> synthesized.
+
+
+Synthesizing Unit <mii_gmii_io>.
+    Related source file is "/home/ise/ISE_146/ethernet/mii_gmii_io_simple.vhd".
+Unit <mii_gmii_io> synthesized.
+
+
+Synthesizing Unit <framing>.
+    Related source file is "/home/ise/ISE_146/ethernet/ethernet_mac/framing.vhd".
+INFO:Xst:1799 - State tx_preamble3 is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_preamble2 is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_preamble4 is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_preamble5 is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_preamble6 is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_preamble7 is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_start_frame_delimiter is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_client_data_wait_source_address is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_pad is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_client_data is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_source_address is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_frame_check_sequence2 is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_frame_check_sequence3 is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_frame_check_sequence4 is never reached in FSM <tx_state>.
+INFO:Xst:1799 - State tx_interpacket_gap is never reached in FSM <tx_state>.
+    Found finite state machine <FSM_2> for signal <rx_state>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 20                                             |
+    | Inputs             | 10                                             |
+    | Outputs            | 5                                              |
+    | Clock              | rx_clock_i                (rising_edge)        |
+    | Reset              | rx_reset_i                (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | rx_wait_start_frame_delimiter                  |
+    | Power Up State     | rx_wait_start_frame_delimiter                  |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_3> for signal <tx_state>.
+    -----------------------------------------------------------------------
+    | States             | 1                                              |
+    | Transitions        | 1                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 7                                              |
+    | Clock              | tx_clock_i                (rising_edge)        |
+    | Clock enable       | tx_state$not0000          (positive)           |
+    | Reset              | tx_reset_i                (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | tx_idle                                        |
+    | Power Up State     | tx_idle                                        |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <rx_data_o>.
+    Found 1-bit register for signal <rx_frame_o>.
+    Found 1-bit register for signal <rx_error_o>.
+    Found 8-bit register for signal <mii_tx_data_o>.
+    Found 1-bit register for signal <mii_tx_enable_o>.
+    Found 1-bit register for signal <rx_byte_received_o>.
+    Found 1-bit register for signal <tx_busy_o>.
+    Found 1-bit register for signal <mii_tx_gap_o>.
+    Found 3-bit adder for signal <add0000$add0000> created at line 50.
+    Found 3-bit adder for signal <data_out$add0001> created at line 50.
+    Found 1-bit xor2 for signal <new_crc0$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc1$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc10$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc11$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc12$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc13$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc14$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc15$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc2$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc3$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc4$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc5$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc6$xor0014> created at line 33.
+    Found 1-bit xor2 for signal <new_crc9$xor0014> created at line 33.
+    Found 11-bit comparator greater for signal <rx_error_o$cmp_gt0000> created at line 325.
+    Found 11-bit comparator less for signal <rx_error_o$cmp_lt0000> created at line 325.
+    Found 32-bit register for signal <rx_frame_check_sequence>.
+    Found 1-bit xor2 for signal <rx_frame_check_sequence$xor0014> created at line 33.
+    Found 11-bit register for signal <rx_frame_size>.
+    Found 11-bit adder for signal <rx_frame_size$addsub0000> created at line 334.
+    Found 11-bit comparator less for signal <rx_frame_size$cmp_lt0000> created at line 333.
+    Found 1-bit register for signal <rx_is_group_address>.
+    Found 3-bit register for signal <rx_mac_address_byte>.
+    Found 3-bit comparator less for signal <rx_state$cmp_lt0000> created at line 337.
+    Found 8-bit comparator not equal for signal <rx_state$cmp_ne0000> created at line 344.
+    Found 32-bit register for signal <tx_frame_check_sequence>.
+    Found 32-bit 4-to-1 multiplexer for signal <tx_frame_check_sequence$mux0000>.
+    Found 1-bit xor2 for signal <tx_frame_check_sequence$xor0014> created at line 33.
+    Found 4-bit register for signal <tx_interpacket_gap_counter>.
+    Found 4-bit adder for signal <tx_interpacket_gap_counter$addsub0000> created at line 258.
+    Found 3-bit register for signal <tx_mac_address_byte>.
+    Found 3-bit comparator less for signal <tx_mac_address_byte$cmp_lt0000> created at line 182.
+    Found 7-bit register for signal <tx_padding_required>.
+    Found 7-bit subtractor for signal <tx_padding_required$addsub0000> created at line 270.
+    Found 7-bit comparator greater for signal <tx_padding_required$cmp_gt0000> created at line 269.
+    Found 7-bit comparator lessequal for signal <tx_padding_required$cmp_le0000> created at line 269.
+    Found 3-bit comparator less for signal <tx_state$cmp_lt0000> created at line 208.
+    Summary:
+	inferred   2 Finite State Machine(s).
+	inferred 115 D-type flip-flop(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred   9 Comparator(s).
+	inferred  32 Multiplexer(s).
+Unit <framing> synthesized.
+
+
+Synthesizing Unit <miim>.
+    Related source file is "/home/ise/ISE_146/ethernet/ethernet_mac/miim.vhd".
+    Found finite state machine <FSM_4> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 9                                              |
+    | Transitions        | 15                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 10                                             |
+    | Clock              | clock_i                   (rising_edge)        |
+    | Clock enable       | state$not0000             (negative)           |
+    | Reset              | reset_i                   (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | idle                                           |
+    | Power Up State     | idle                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit tristate buffer for signal <mdio_io>.
+    Found 16-bit register for signal <data_read_o>.
+    Found 1-bit 46-to-1 multiplexer for signal <$varindex0000> created at line 111.
+    Found 5-bit up counter for signal <clock_divide_counter>.
+    Found 6-bit register for signal <command_bit_position>.
+    Found 6-bit adder for signal <command_bit_position$addsub0000> created at line 167.
+    Found 5-bit register for signal <data_bit_position>.
+    Found 5-bit subtractor for signal <data_bit_position$addsub0000> created at line 189.
+    Found 5-bit comparator greatequal for signal <mdc_o$cmp_ge0000> created at line 93.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  27 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+	inferred   1 Tristate(s).
+Unit <miim> synthesized.
+
+
+Synthesizing Unit <miim_control>.
+    Related source file is "/home/ise/ISE_146/ethernet/ethernet_mac/miim_control.vhd".
+WARNING:Xst:646 - Signal <init_done<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Using one-hot encoding for signal <state>.
+    Found 1-bit register for signal <link_up_o>.
+    Found 16-bit register for signal <miim_data_write_o>.
+    Found 1-bit register for signal <miim_we_o>.
+    Found 8-bit register for signal <debug_fifo_write_data_o>.
+    Found 2-bit register for signal <speed_o>.
+    Found 1-bit register for signal <debug_fifo_we_o>.
+    Found 1-bit register for signal <miim_req_o>.
+    Found 14-bit register for signal <after_ack_state>.
+    Found 1-bit register for signal <lp_supports_10>.
+    Found 1-bit register for signal <lp_supports_100>.
+    Found 24-bit up counter for signal <poll_wait_counter>.
+    Found 5-bit register for signal <register_address>.
+    Found 5-bit adder for signal <register_address$addsub0000> created at line 261.
+    Found 22-bit up counter for signal <reset_wait_counter>.
+    Found 14-bit register for signal <state>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  65 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <miim_control> synthesized.
+
+
+Synthesizing Unit <ethernet>.
+    Related source file is "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet.vhd".
+WARNING:Xst:1305 - Output <rgmii_tx_ctl_o> is never assigned. Tied to value 0.
+WARNING:Xst:647 - Input <rgmii_rx_ctl_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <ethernet> synthesized.
+
+
+Synthesizing Unit <top>.
+    Related source file is "/home/ise/ISE_146/ethernet/top.vhd".
+WARNING:Xst:646 - Signal <s_tx_reset> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_tx_clock> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_tx_byte_sent> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_tx_busy> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_speed> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_rx_reset> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_rx_frame> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_rx_error> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_rx_data> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_rx_clock> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_rx_byte_received> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_mii_txd_8bit<7:4>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <s_link_up> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 8
+ 11-bit adder                                          : 1
+ 3-bit adder                                           : 2
+ 4-bit adder                                           : 1
+ 5-bit adder                                           : 1
+ 5-bit subtractor                                      : 1
+ 6-bit adder                                           : 1
+ 7-bit subtractor                                      : 1
+# Counters                                             : 4
+ 10-bit up counter                                     : 1
+ 22-bit up counter                                     : 1
+ 24-bit up counter                                     : 1
+ 5-bit up counter                                      : 1
+# Registers                                            : 66
+ 1-bit register                                        : 47
+ 11-bit register                                       : 1
+ 14-bit register                                       : 2
+ 16-bit register                                       : 1
+ 2-bit register                                        : 2
+ 3-bit register                                        : 2
+ 32-bit register                                       : 2
+ 4-bit register                                        : 1
+ 5-bit register                                        : 2
+ 6-bit register                                        : 1
+ 7-bit register                                        : 1
+ 8-bit register                                        : 4
+# Comparators                                          : 11
+ 11-bit comparator greater                             : 1
+ 11-bit comparator less                                : 2
+ 2-bit comparator not equal                            : 1
+ 3-bit comparator less                                 : 3
+ 5-bit comparator greatequal                           : 1
+ 7-bit comparator greater                              : 1
+ 7-bit comparator lessequal                            : 1
+ 8-bit comparator not equal                            : 1
+# Multiplexers                                         : 2
+ 1-bit 46-to-1 multiplexer                             : 1
+ 32-bit 4-to-1 multiplexer                             : 1
+# Tristates                                            : 1
+ 1-bit tristate buffer                                 : 1
+# Xors                                                 : 16
+ 1-bit xor2                                            : 16
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_4> for best encoding.
+Optimizing FSM <ethernet_inst/miim_gen.miim_inst/state/FSM> on signal <state[1:9]> with one-hot encoding.
+--------------------------------------
+ State                   | Encoding
+--------------------------------------
+ idle                    | 000000001
+ tx_command              | 000000010
+ rx_turnaround_z         | 000000100
+ rx_turnaround_z_readlow | 000010000
+ rx_data                 | 000100000
+ tx_turnaround_high      | 000001000
+ tx_turnaround_low       | 001000000
+ tx_data                 | 010000000
+ done                    | 100000000
+--------------------------------------
+Analyzing FSM <FSM_3> for best encoding.
+Optimizing FSM <ethernet_inst/framing_inst/tx_state/FSM> on signal <tx_state[1:4]> with user encoding.
+------------------------------------------------
+ State                              | Encoding
+------------------------------------------------
+ tx_idle                            | 0000
+ tx_preamble2                       | unreached
+ tx_preamble3                       | unreached
+ tx_preamble4                       | unreached
+ tx_preamble5                       | unreached
+ tx_preamble6                       | unreached
+ tx_preamble7                       | unreached
+ tx_start_frame_delimiter           | unreached
+ tx_client_data_wait_source_address | unreached
+ tx_source_address                  | unreached
+ tx_client_data                     | unreached
+ tx_pad                             | unreached
+ tx_frame_check_sequence2           | unreached
+ tx_frame_check_sequence3           | unreached
+ tx_frame_check_sequence4           | unreached
+ tx_interpacket_gap                 | unreached
+------------------------------------------------
+Analyzing FSM <FSM_2> for best encoding.
+Optimizing FSM <ethernet_inst/framing_inst/rx_state/FSM> on signal <rx_state[1:2]> with sequential encoding.
+-------------------------------------------
+ State                         | Encoding
+-------------------------------------------
+ rx_wait_start_frame_delimiter | 00
+ rx_data                       | 10
+ rx_error                      | 11
+ rx_skip_frame                 | 01
+-------------------------------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <ethernet_inst/mii_gmii_inst/tx_state/FSM> on signal <tx_state[1:2]> with gray encoding.
+----------------------------
+ State          | Encoding
+----------------------------
+ tx_init        | 00
+ tx_gmii        | 01
+ tx_mii_lo_quad | 11
+ tx_mii_hi_quad | 10
+----------------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <ethernet_inst/mii_gmii_inst/rx_state/FSM> on signal <rx_state[1:2]> with gray encoding.
+----------------------------
+ State          | Encoding
+----------------------------
+ rx_init        | 00
+ rx_gmii        | 01
+ rx_mii_lo_quad | 11
+ rx_mii_hi_quad | 10
+----------------------------
+WARNING:Xst:1290 - Hierarchical block <sync_rx_reset_inst> is unconnected in block <ethernet_inst>.
+   It will be removed from the design.
+INFO:Xst:2261 - The FF/Latch <mii_tx_data_o_0> in Unit <framing_inst> is equivalent to the following 8 FFs/Latches, which will be removed : <mii_tx_data_o_1> <mii_tx_data_o_2> <mii_tx_data_o_3> <mii_tx_data_o_4> <mii_tx_data_o_5> <mii_tx_data_o_6> <mii_tx_data_o_7> <mii_tx_gap_o> 
+WARNING:Xst:1710 - FF/Latch <mii_txd_o_0> (without init value) has a constant value of 0 in block <mii_gmii_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mii_txd_o_1> (without init value) has a constant value of 0 in block <mii_gmii_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mii_txd_o_2> (without init value) has a constant value of 0 in block <mii_gmii_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mii_txd_o_3> (without init value) has a constant value of 0 in block <mii_gmii_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mii_tx_data_o_0> (without init value) has a constant value of 0 in block <framing_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mii_tx_enable_o> (without init value) has a constant value of 0 in block <framing_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_1> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_2> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_3> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_4> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_5> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_7> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_10> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_11> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_13> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_14> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <mii_txd_o_4> of sequential type is unconnected in block <mii_gmii_inst>.
+WARNING:Xst:2677 - Node <mii_txd_o_5> of sequential type is unconnected in block <mii_gmii_inst>.
+WARNING:Xst:2677 - Node <mii_txd_o_6> of sequential type is unconnected in block <mii_gmii_inst>.
+WARNING:Xst:2677 - Node <mii_txd_o_7> of sequential type is unconnected in block <mii_gmii_inst>.
+WARNING:Xst:1290 - Hierarchical block <framing_inst> is unconnected in block <ethernet_inst>.
+   It will be removed from the design.
+WARNING:Xst:2404 -  FFs/Latches <mii_tx_data_o<7:0>> (without init value) have a constant value of 0 in block <framing>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 5
+# Adders/Subtractors                                   : 5
+ 11-bit adder                                          : 1
+ 3-bit adder                                           : 1
+ 5-bit adder                                           : 1
+ 5-bit subtractor                                      : 1
+ 6-bit adder                                           : 1
+# Counters                                             : 4
+ 10-bit up counter                                     : 1
+ 22-bit up counter                                     : 1
+ 24-bit up counter                                     : 1
+ 5-bit up counter                                      : 1
+# Registers                                            : 227
+ Flip-Flops                                            : 227
+# Comparators                                          : 8
+ 11-bit comparator greater                             : 1
+ 11-bit comparator less                                : 2
+ 2-bit comparator not equal                            : 1
+ 3-bit comparator less                                 : 2
+ 5-bit comparator greatequal                           : 1
+ 8-bit comparator not equal                            : 1
+# Multiplexers                                         : 2
+ 1-bit 46-to-1 multiplexer                             : 1
+ 32-bit 4-to-1 multiplexer                             : 1
+# Xors                                                 : 16
+ 1-bit xor2                                            : 16
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1426 - The value init of the FF/Latch tx_padding_required_2 hinder the constant cleaning in the block framing.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1426 - The value init of the FF/Latch tx_padding_required_3 hinder the constant cleaning in the block framing.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1426 - The value init of the FF/Latch tx_padding_required_4 hinder the constant cleaning in the block framing.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1426 - The value init of the FF/Latch tx_padding_required_5 hinder the constant cleaning in the block framing.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:1293 - FF/Latch <tx_interpacket_gap_counter_0> has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tx_interpacket_gap_counter_1> has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tx_interpacket_gap_counter_2> has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tx_interpacket_gap_counter_3> has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tx_mac_address_byte_0> has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tx_mac_address_byte_1> has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tx_mac_address_byte_2> has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tx_padding_required_0> has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tx_padding_required_1> has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <tx_padding_required_6> has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <mii_tx_gap_o> (without init value) has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <miim_data_write_o_1> (without init value) has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <miim_data_write_o_2> (without init value) has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <miim_data_write_o_3> (without init value) has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <miim_data_write_o_4> (without init value) has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <miim_data_write_o_5> (without init value) has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <miim_data_write_o_7> (without init value) has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <miim_data_write_o_10> (without init value) has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <miim_data_write_o_11> (without init value) has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <miim_data_write_o_13> (without init value) has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <miim_data_write_o_14> (without init value) has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <tx_padding_required_2> in Unit <framing> is equivalent to the following 3 FFs/Latches, which will be removed : <tx_padding_required_3> <tx_padding_required_4> <tx_padding_required_5> 
+WARNING:Xst:1710 - FF/Latch <mii_tx_enable_o> (without init value) has a constant value of 0 in block <framing>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <tx_padding_required_2> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_0> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_1> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_2> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_3> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_4> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_5> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_6> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_7> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_8> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_9> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_10> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_11> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_12> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_13> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_14> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_15> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_16> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_17> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_18> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_19> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_20> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_21> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_22> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_23> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_24> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_25> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_26> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_27> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_28> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_29> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_30> of sequential type is unconnected in block <framing>.
+WARNING:Xst:2677 - Node <tx_frame_check_sequence_31> of sequential type is unconnected in block <framing>.
+WARNING:Xst:1293 - FF/Latch <after_ack_state_1> has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <after_ack_state_5> has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <after_ack_state_9> has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <after_ack_state_10> has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <after_ack_state_11> has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <after_ack_state_12> has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <after_ack_state_13> has a constant value of 0 in block <miim_control>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <top> ...
+WARNING:Xst:1293 - FF/Latch <ethernet_inst/miim_gen.miim_inst/data_bit_position_4> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ethernet_inst/miim_gen.miim_inst/data_bit_position_4> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <reset_generator> ...
+
+Optimizing unit <mii_gmii> ...
+
+Optimizing unit <framing> ...
+
+Optimizing unit <miim_control> ...
+WARNING:Xst:1710 - FF/Latch <ethernet_inst/mii_gmii_inst/mii_txd_o_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ethernet_inst/mii_gmii_inst/mii_txd_o_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ethernet_inst/mii_gmii_inst/mii_txd_o_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <ethernet_inst/mii_gmii_inst/mii_txd_o_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/sync_rx_reset_inst/signal_tmp> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/sync_rx_reset_inst/signal_o> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_state_FSM_FFd2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_state_FSM_FFd1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_frame_o> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_data_o_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_error_o> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_data_o_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_data_o_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_data_o_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_data_o_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_data_o_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_data_o_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/mii_txd_o_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/mii_txd_o_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/mii_txd_o_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/mii_txd_o_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_data_o_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/rx_byte_received_o> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_state_FSM_FFd2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_state_FSM_FFd1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/tx_busy_o> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_o> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_error_o> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_31> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_30> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_29> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_28> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_27> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_26> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_25> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_24> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_20> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_19> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_byte_received_o> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_is_group_address> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_mac_address_byte_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_mac_address_byte_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_mac_address_byte_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_we_o> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/link_up_o> of sequential type is unconnected in block <top>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 130
+ Flip-Flops                                            : 130
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top.ngr
+Top Level Output File Name         : top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 18
+
+Cell Usage :
+# BELS                             : 417
+#      GND                         : 1
+#      INV                         : 5
+#      LUT1                        : 44
+#      LUT2                        : 23
+#      LUT2_D                      : 1
+#      LUT2_L                      : 10
+#      LUT3                        : 45
+#      LUT3_D                      : 4
+#      LUT3_L                      : 5
+#      LUT4                        : 114
+#      LUT4_D                      : 9
+#      LUT4_L                      : 19
+#      MUXCY                       : 65
+#      MUXF5                       : 15
+#      VCC                         : 1
+#      XORCY                       : 56
+# FlipFlops/Latches                : 130
+#      FD                          : 13
+#      FDC                         : 3
+#      FDCE                        : 1
+#      FDE                         : 44
+#      FDP                         : 5
+#      FDR                         : 6
+#      FDRE                        : 54
+#      FDS                         : 1
+#      FDSE                        : 3
+# Clock Buffers                    : 1
+#      BUFG                        : 1
+# IO Buffers                       : 11
+#      IBUF                        : 3
+#      IOBUF                       : 1
+#      OBUF                        : 7
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      143  out of   4656     3%  
+ Number of Slice Flip Flops:            130  out of   9312     1%  
+ Number of 4 input LUTs:                279  out of   9312     2%  
+ Number of IOs:                          18
+ Number of bonded IOBs:                  11  out of    232     4%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+--------------------------------------------------------------------+-----------------------------------------------------+-------+
+Clock Signal                                                        | Clock buffer(FF name)                               | Load  |
+--------------------------------------------------------------------+-----------------------------------------------------+-------+
+i_clk_50mhz                                                         | IBUF+BUFG                                           | 125   |
+ethernet_inst/tx_clock(ethernet_inst/mii_gmii_io_inst/clock_tx_o1:O)| NONE(*)(ethernet_inst/sync_tx_reset_inst/signal_tmp)| 5     |
+--------------------------------------------------------------------+-----------------------------------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+----------------------------------------------------------------------------------------+------------------------------------------------------+-------+
+Control Signal                                                                          | Buffer(FF name)                                      | Load  |
+----------------------------------------------------------------------------------------+------------------------------------------------------+-------+
+s_reset(s_reset1_INV_0:O)                                                               | NONE(ethernet_inst/reset_generator_inst/last_speed_0)| 4     |
+ethernet_inst/sync_tx_reset_inst/signal_o(ethernet_inst/sync_tx_reset_inst/signal_o:Q)  | NONE(ethernet_inst/mii_gmii_inst/mii_tx_en_o)        | 3     |
+ethernet_inst/reset_generator_inst/reset_o(ethernet_inst/reset_generator_inst/reset_o:Q)| NONE(ethernet_inst/sync_tx_reset_inst/signal_o)      | 2     |
+----------------------------------------------------------------------------------------+------------------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 6.985ns (Maximum Frequency: 143.164MHz)
+   Minimum input arrival time before clock: 5.977ns
+   Maximum output required time after clock: 10.150ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'i_clk_50mhz'
+  Clock period: 6.985ns (frequency: 143.164MHz)
+  Total number of paths / destination ports: 3306 / 235
+-------------------------------------------------------------------------
+Delay:               6.985ns (Levels of Logic = 10)
+  Source:            ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_7 (FF)
+  Destination:       ethernet_inst/miim_gen.miim_control_inst/state_9 (FF)
+  Source Clock:      i_clk_50mhz rising
+  Destination Clock: i_clk_50mhz rising
+
+  Data Path: ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_7 to ethernet_inst/miim_gen.miim_control_inst/state_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             2   0.591   0.622  ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_7 (ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_7)
+     LUT4:I0->O            1   0.704   0.000  ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_lut<0> (ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<0> (ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<1> (ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<2> (ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<3> (ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<4> (ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<4>)
+     MUXCY:CI->O          10   0.459   0.961  ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001_wg_cy<5> (ethernet_inst/miim_gen.miim_control_inst/poll_wait_counter_cmp_eq0001)
+     LUT3:I1->O            1   0.704   0.424  ethernet_inst/miim_gen.miim_control_inst/state_mux0000<4>1_SW0_SW0 (N120)
+     LUT4_L:I3->LO         1   0.704   0.104  ethernet_inst/miim_gen.miim_control_inst/state_mux0000<4>1_SW0 (N52)
+     LUT4:I3->O            1   0.704   0.000  ethernet_inst/miim_gen.miim_control_inst/state_mux0000<4>1 (ethernet_inst/miim_gen.miim_control_inst/state_mux0000<4>1)
+     FD:D                      0.308          ethernet_inst/miim_gen.miim_control_inst/state_9
+    ----------------------------------------
+    Total                      6.985ns (4.874ns logic, 2.111ns route)
+                                       (69.8% logic, 30.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'ethernet_inst/tx_clock'
+  Clock period: 2.225ns (frequency: 449.438MHz)
+  Total number of paths / destination ports: 5 / 3
+-------------------------------------------------------------------------
+Delay:               2.225ns (Levels of Logic = 1)
+  Source:            ethernet_inst/mii_gmii_inst/tx_state_FSM_FFd1 (FF)
+  Destination:       ethernet_inst/mii_gmii_inst/mii_tx_en_o (FF)
+  Source Clock:      ethernet_inst/tx_clock rising
+  Destination Clock: ethernet_inst/tx_clock rising
+
+  Data Path: ethernet_inst/mii_gmii_inst/tx_state_FSM_FFd1 to ethernet_inst/mii_gmii_inst/mii_tx_en_o
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.591   0.622  ethernet_inst/mii_gmii_inst/tx_state_FSM_FFd1 (ethernet_inst/mii_gmii_inst/tx_state_FSM_FFd1)
+     LUT2:I0->O            1   0.704   0.000  ethernet_inst/mii_gmii_inst/mii_tx_en_o_mux00011 (ethernet_inst/mii_gmii_inst/mii_tx_en_o_mux0001)
+     FDC:D                     0.308          ethernet_inst/mii_gmii_inst/mii_tx_en_o
+    ----------------------------------------
+    Total                      2.225ns (1.603ns logic, 0.622ns route)
+                                       (72.0% logic, 28.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'i_clk_50mhz'
+  Total number of paths / destination ports: 134 / 121
+-------------------------------------------------------------------------
+Offset:              5.977ns (Levels of Logic = 4)
+  Source:            i_reset_n (PAD)
+  Destination:       ethernet_inst/miim_gen.miim_control_inst/state_8 (FF)
+  Destination Clock: i_clk_50mhz rising
+
+  Data Path: i_reset_n to ethernet_inst/miim_gen.miim_control_inst/state_8
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            48   1.218   1.442  i_reset_n_IBUF (ethernet_inst/miim_gen.miim_control_inst/reset_i_inv)
+     LUT3_D:I0->O          4   0.704   0.762  ethernet_inst/miim_gen.miim_control_inst/state_mux0000<9>131 (ethernet_inst/miim_gen.miim_control_inst/N24)
+     LUT4_L:I0->LO         1   0.704   0.135  ethernet_inst/miim_gen.miim_control_inst/state_mux0000<10>121_SW3 (N67)
+     LUT4:I2->O            1   0.704   0.000  ethernet_inst/miim_gen.miim_control_inst/state_mux0000<6>11 (ethernet_inst/miim_gen.miim_control_inst/state_mux0000<6>1)
+     FD:D                      0.308          ethernet_inst/miim_gen.miim_control_inst/state_7
+    ----------------------------------------
+    Total                      5.977ns (3.638ns logic, 2.339ns route)
+                                       (60.9% logic, 39.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'i_clk_50mhz'
+  Total number of paths / destination ports: 64 / 3
+-------------------------------------------------------------------------
+Offset:              10.150ns (Levels of Logic = 7)
+  Source:            ethernet_inst/miim_gen.miim_inst/data_bit_position_0 (FF)
+  Destination:       MDIO (PAD)
+  Source Clock:      i_clk_50mhz rising
+
+  Data Path: ethernet_inst/miim_gen.miim_inst/data_bit_position_0 to MDIO
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             14   0.591   1.079  ethernet_inst/miim_gen.miim_inst/data_bit_position_0 (ethernet_inst/miim_gen.miim_inst/data_bit_position_0)
+     LUT4:I1->O            2   0.704   0.451  ethernet_inst/miim_gen.miim_inst/mdio_io_mux000046 (ethernet_inst/miim_gen.miim_inst/mdio_io_mux000046)
+     LUT4:I3->O            1   0.704   0.000  ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089_F (N186)
+     MUXF5:I0->O           1   0.321   0.424  ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089 (ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089)
+     LUT4:I3->O            1   0.704   0.455  ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000138_SW0 (N178)
+     LUT4:I2->O            1   0.704   0.000  ethernet_inst/miim_gen.miim_inst/mdio_io_mux00001802 (ethernet_inst/miim_gen.miim_inst/mdio_io_mux00001801)
+     MUXF5:I0->O           1   0.321   0.420  ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000180_f5 (ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000)
+     IOBUF:I->IO               3.272          MDIO_IOBUF (MDIO)
+    ----------------------------------------
+    Total                     10.150ns (7.321ns logic, 2.829ns route)
+                                       (72.1% logic, 27.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ethernet_inst/tx_clock'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.283ns (Levels of Logic = 1)
+  Source:            ethernet_inst/mii_gmii_inst/mii_tx_en_o (FF)
+  Destination:       MII_TX_EN (PAD)
+  Source Clock:      ethernet_inst/tx_clock rising
+
+  Data Path: ethernet_inst/mii_gmii_inst/mii_tx_en_o to MII_TX_EN
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              1   0.591   0.420  ethernet_inst/mii_gmii_inst/mii_tx_en_o (ethernet_inst/mii_gmii_inst/mii_tx_en_o)
+     OBUF:I->O                 3.272          MII_TX_EN_OBUF (MII_TX_EN)
+    ----------------------------------------
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 1.52 secs
+ 
+--> 
+
+
+Total memory usage is 650120 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  223 (   0 filtered)
+Number of infos    :   20 (   0 filtered)
+

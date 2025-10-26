@@ -1,0 +1,11 @@
+SET_PARAMETER number_of_address_table_entries 4
+SET_PARAMETER mac_speed 10_100_Mbps
+SET_PARAMETER physical_interface MII
+SET_PARAMETER component_name ethernet
+SET_PARAMETER clock_enables true
+SET_PARAMETER address_filter true
+SET_PARAMETER management_interface true
+SET_PARAMETER half_duplex false
+SET_ERROR_CODE 2
+SET_ERROR_MSG  CANCEL: Customization cancelled.
+SET_ERROR_TEXT Finished initializing IP model.	
