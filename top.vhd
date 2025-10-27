@@ -80,6 +80,22 @@ architecture Behavioral of top is
         );
     end component;
 
+    -- Component Declaration: ChipScope ICON (Control Interface)
+    component con is
+        Port (
+            CONTROL0 : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0)
+        );
+    end component;
+    
+    -- Component Declaration: ChipScope ILA (Logic Analyzer)
+    component ila is
+        Port (
+            CONTROL : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0);
+            CLK     : IN STD_LOGIC;
+            TRIG0   : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
+        );
+    end component;
+
     -- Component Declaration for GitHub ethernet_mac
     component ethernet is
         generic(
@@ -175,6 +191,10 @@ architecture Behavioral of top is
     signal s_tx_byte_sent_slv : std_logic;
     signal s_tx_busy_slv    : std_logic;
     
+    -- ChipScope Signals
+    signal s_chipscope_control : std_logic_vector(35 downto 0);
+    signal s_chipscope_trig    : std_logic_vector(31 downto 0);
+    
     -- Type conversion functions
     function to_std_logic(u : std_ulogic) return std_logic is
     begin
@@ -226,6 +246,34 @@ begin
     s_tx_data <= to_std_ulogic_vector(s_tx_data_slv);
     s_tx_byte_sent_slv <= to_std_logic(s_tx_byte_sent);
     s_tx_busy_slv <= to_std_logic(s_tx_busy);
+    
+    ----------------------------------------------------------------------------------
+    -- ChipScope Debug Trigger Signals (32-bit)
+    -- This allows real-time monitoring of Ethernet traffic
+    ----------------------------------------------------------------------------------
+    -- TRIG0[31:24] = RX Data (8-bit)
+    -- TRIG0[23:16] = TX Data (8-bit)
+    -- TRIG0[15]    = RX Frame
+    -- TRIG0[14]    = TX Enable
+    -- TRIG0[13]    = RX Byte Received
+    -- TRIG0[12]    = TX Byte Sent
+    -- TRIG0[11]    = RX Error
+    -- TRIG0[10]    = TX Busy
+    -- TRIG0[9]     = Link Up
+    -- TRIG0[8]     = RX Reset
+    -- TRIG0[7:4]   = Switch Value (4-bit)
+    -- TRIG0[3:0]   = LED Value (lower 4 bits)
+    s_chipscope_trig(31 downto 24) <= to_std_logic_vector(s_rx_data);
+    s_chipscope_trig(23 downto 16) <= s_tx_data_slv;
+    s_chipscope_trig(15) <= to_std_logic(s_rx_frame);
+    s_chipscope_trig(14) <= s_tx_enable_slv;
+    s_chipscope_trig(13) <= to_std_logic(s_rx_byte_received);
+    s_chipscope_trig(12) <= s_tx_byte_sent_slv;
+    s_chipscope_trig(11) <= to_std_logic(s_rx_error);
+    s_chipscope_trig(10) <= s_tx_busy_slv;
+    s_chipscope_trig(9)  <= to_std_logic(s_link_up);
+    s_chipscope_trig(8)  <= to_std_logic(s_rx_reset);
+    s_chipscope_trig(7 downto 4) <= SW;
 
     ----------------------------------------------------------------------------------
     -- Ethernet MAC Instantiation
@@ -248,7 +296,7 @@ begin
             mac_address_i      => C_MAC_ADDRESS,
             
             -- MII Physical Interface
-            mii_tx_clk_i       => to_std_ulogic(MII_TX_CLK),
+            mii_tx_clk_i       => to_std_ulogic(MII_TX_CLK), 
             mii_tx_er_o        => open,  -- Not used in MII mode
             mii_tx_en_o        => s_mii_tx_en,
             mii_txd_o          => s_mii_txd_8bit,
@@ -316,6 +364,28 @@ begin
             i_rx_frame => to_std_logic(s_rx_frame),
             i_switch   => SW,
             o_led      => LED
+        );
+
+    ----------------------------------------------------------------------------------
+    -- ChipScope ICON (Control Interface)
+    -- Provides control bus for ChipScope cores
+    ----------------------------------------------------------------------------------
+    chipscope_icon_inst : component con
+        port map (
+            CONTROL0 => s_chipscope_control
+        );
+
+    ----------------------------------------------------------------------------------
+    -- ChipScope ILA (Integrated Logic Analyzer)
+    -- Captures and displays internal signals in real-time
+    -- Clock: RX Clock (captures Ethernet receive events)
+    -- Trigger: 32-bit signal with RX/TX data and control signals
+    ----------------------------------------------------------------------------------
+    chipscope_ila_inst : component ila
+        port map (
+            CONTROL => s_chipscope_control,
+            CLK     => to_std_logic(s_rx_clock),
+            TRIG0   => s_chipscope_trig
         );
 
 end Behavioral;

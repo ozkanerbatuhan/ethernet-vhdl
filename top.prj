@@ -1,3 +1,5 @@
+vhdl work "ipcore_dir/con.vhd"
+vhdl work "ipcore_dir/ila.vhd"
 vhdl ethernet_mac "ethernet_mac/utility.vhd"
 vhdl ethernet_mac "ethernet_mac/crc.vhd"
 vhdl ethernet_mac "ethernet_mac/miim_types.vhd"

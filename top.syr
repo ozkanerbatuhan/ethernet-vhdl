@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.01 secs
+Total CPU time to Xst completion: 0.00 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.01 secs
+Total CPU time to Xst completion: 0.00 secs
  
 --> 
 Reading design: top.prj
@@ -101,6 +101,9 @@ Verilog 2001                       : YES
 Auto BRAM Packing                  : NO
 Slice Utilization Ratio Delta      : 5
 
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
 =========================================================================
 
 
@@ -137,25 +140,23 @@ Architecture simple of Entity single_signal_synchronizer is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mii_gmii_io_simple.vhd" in Library ethernet_mac.
 Architecture simple of Entity mii_gmii_io is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet.vhd" in Library ethernet_mac.
-Entity <ethernet> compiled.
-Entity <ethernet> (Architecture <rtl>) compiled.
+Architecture rtl of Entity ethernet is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/switch_driver.vhd" in Library work.
-WARNING:HDLParsers:3530 - Time stamp of file "/home/ise/ISE_146/ethernet/switch_driver.vhd" is newer than current system time.
-Entity <switch_driver> compiled.
-Entity <switch_driver> (Architecture <Behavioral>) compiled.
+Architecture behavioral of Entity switch_driver is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/led_driver.vhd" in Library work.
-WARNING:HDLParsers:3530 - Time stamp of file "/home/ise/ISE_146/ethernet/led_driver.vhd" is newer than current system time.
-Entity <led_driver> compiled.
-Entity <led_driver> (Architecture <Behavioral>) compiled.
+Architecture behavioral of Entity led_driver is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ipcore_dir/con.vhd" in Library work.
+Architecture con_a of Entity con is up to date.
+Compiling vhdl file "/home/ise/ISE_146/ethernet/ipcore_dir/ila.vhd" in Library work.
+Architecture ila_a of Entity ila is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/top.vhd" in Library work.
-WARNING:HDLParsers:3530 - Time stamp of file "/home/ise/ISE_146/ethernet/top.vhd" is newer than current system time.
 Entity <top> compiled.
-Entity <top> (Architecture <Behavioral>) compiled.
+Entity <top> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
-Analyzing hierarchy for entity <top> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <top> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <ethernet> in library <ethernet_mac> (architecture <rtl>) with generics.
 	MIIM_CLOCK_DIVIDER = 20
@@ -164,10 +165,10 @@ Analyzing hierarchy for entity <ethernet> in library <ethernet_mac> (architectur
 	MIIM_POLL_WAIT_TICKS = 10000000
 	MIIM_RESET_WAIT_TICKS = 2500000
 
-Analyzing hierarchy for entity <switch_driver> in library <work> (architecture <Behavioral>) with generics.
+Analyzing hierarchy for entity <switch_driver> in library <work> (architecture <behavioral>) with generics.
 	G_MAC_ADDRESS = "000000000000101000110101000100100011010001010110"
 
-Analyzing hierarchy for entity <led_driver> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <led_driver> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <reset_generator> in library <ethernet_mac> (architecture <rtl>) with generics.
 	RESET_TICKS = 1000
@@ -192,10 +193,12 @@ Analyzing hierarchy for entity <miim_control> in library <ethernet_mac> (archite
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
-Analyzing Entity <top> in library <work> (Architecture <Behavioral>).
-WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 233: Unconnected output port 'mii_tx_er_o' of component 'ethernet'.
-WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 233: Unconnected output port 'gmii_gtx_clk_o' of component 'ethernet'.
-WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 233: Unconnected output port 'rgmii_tx_ctl_o' of component 'ethernet'.
+Analyzing Entity <top> in library <work> (Architecture <behavioral>).
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 281: Unconnected output port 'mii_tx_er_o' of component 'ethernet'.
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 281: Unconnected output port 'gmii_gtx_clk_o' of component 'ethernet'.
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 281: Unconnected output port 'rgmii_tx_ctl_o' of component 'ethernet'.
+WARNING:Xst:2211 - "/home/ise/ISE_146/ethernet/top.vhd" line 373: Instantiating black box module <con>.
+WARNING:Xst:2211 - "/home/ise/ISE_146/ethernet/top.vhd" line 384: Instantiating black box module <ila>.
 Entity <top> analyzed. Unit <top> generated.
 
 Analyzing generic Entity <ethernet> in library <ethernet_mac> (Architecture <rtl>).
@@ -236,11 +239,11 @@ Analyzing generic Entity <miim_control> in library <ethernet_mac> (Architecture 
 	RESET_WAIT_TICKS = 2500000
 Entity <miim_control> analyzed. Unit <miim_control> generated.
 
-Analyzing generic Entity <switch_driver> in library <work> (Architecture <Behavioral>).
+Analyzing generic Entity <switch_driver> in library <work> (Architecture <behavioral>).
 	G_MAC_ADDRESS = "000000000000101000110101000100100011010001010110"
 Entity <switch_driver> analyzed. Unit <switch_driver> generated.
 
-Analyzing Entity <led_driver> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <led_driver> in library <work> (Architecture <behavioral>).
 Entity <led_driver> analyzed. Unit <led_driver> generated.
 
 
@@ -529,11 +532,8 @@ Unit <ethernet> synthesized.
 Synthesizing Unit <top>.
     Related source file is "/home/ise/ISE_146/ethernet/top.vhd".
 WARNING:Xst:646 - Signal <s_speed> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <s_rx_error> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <s_rx_data> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <s_rx_byte_received> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <s_mii_txd_8bit<7:4>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <s_link_up> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <s_chipscope_trig<3:0>> is used but never assigned. This sourceless signal will be automatically connected to value 0000.
 Unit <top> synthesized.
 
 
@@ -676,6 +676,10 @@ Optimizing FSM <switch_driver_inst/s_tx_state/FSM> on signal <s_tx_state[1:7]> w
  send_payload   | 0100000
  done           | 1000000
 ----------------------------
+Reading core <ipcore_dir/con.ngc>.
+Reading core <ipcore_dir/ila.ngc>.
+Loading core <con> for timing and area information for instance <chipscope_icon_inst>.
+Loading core <ila> for timing and area information for instance <chipscope_ila_inst>.
 WARNING:Xst:1710 - FF/Latch <miim_data_write_o_1> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <miim_data_write_o_2> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <miim_data_write_o_3> (without init value) has a constant value of 0 in block <miim_gen.miim_control_inst>. This FF/Latch will be trimmed during the optimization process.
@@ -777,71 +781,15 @@ WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_13> of seq
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_12> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_1> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_3> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_2> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_14> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_15> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_4> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_7> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_5> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_inst/data_read_o_9> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/mii_txd_o_7> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/mii_txd_o_6> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/mii_txd_o_5> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/mii_gmii_inst/mii_txd_o_4> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/tx_busy_o> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_error_o> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_10> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_9> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_8> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_7> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_6> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_5> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_4> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_3> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_2> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_1> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_size_0> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_31> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_30> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_29> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_28> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_27> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_26> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_25> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_24> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_23> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_22> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_21> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_20> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_19> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_18> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_17> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_16> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_15> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_14> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_13> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_12> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_11> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_10> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_9> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_8> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_7> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_6> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_5> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_4> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_3> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_2> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_1> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_frame_check_sequence_0> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_byte_received_o> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_7> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_6> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_5> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_4> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_3> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_2> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_1> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/framing_inst/rx_data_o_0> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_7> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_6> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_5> of sequential type is unconnected in block <top>.
@@ -851,11 +799,10 @@ WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_wri
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_1> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_write_data_o_0> of sequential type is unconnected in block <top>.
 WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/debug_fifo_we_o> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <ethernet_inst/miim_gen.miim_control_inst/link_up_o> of sequential type is unconnected in block <top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 8.
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 16.
 FlipFlop ethernet_inst/framing_inst/tx_state_FSM_FFd2 has been replicated 1 time(s)
 FlipFlop switch_driver_inst/o_tx_enable has been replicated 1 time(s)
 
@@ -865,8 +812,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 290
- Flip-Flops                                            : 290
+# Registers                                            : 347
+ Flip-Flops                                            : 347
 
 =========================================================================
 
@@ -895,42 +842,54 @@ Design Statistics
 # IOs                              : 30
 
 Cell Usage :
-# BELS                             : 979
-#      GND                         : 1
-#      INV                         : 38
-#      LUT1                        : 74
-#      LUT2                        : 50
-#      LUT2_D                      : 8
-#      LUT2_L                      : 7
-#      LUT3                        : 116
-#      LUT3_D                      : 4
-#      LUT3_L                      : 8
-#      LUT4                        : 338
-#      LUT4_D                      : 23
-#      LUT4_L                      : 37
-#      MUXCY                       : 133
-#      MUXF5                       : 33
-#      VCC                         : 1
-#      XORCY                       : 108
-# FlipFlops/Latches                : 290
-#      FD                          : 13
-#      FDC                         : 9
-#      FDCE                        : 6
-#      FDE                         : 117
-#      FDP                         : 7
-#      FDR                         : 40
-#      FDRE                        : 69
-#      FDRS                        : 10
+# BELS                             : 1559
+#      GND                         : 3
+#      INV                         : 51
+#      LUT1                        : 142
+#      LUT2                        : 90
+#      LUT2_D                      : 6
+#      LUT2_L                      : 10
+#      LUT3                        : 156
+#      LUT3_D                      : 6
+#      LUT3_L                      : 11
+#      LUT4                        : 515
+#      LUT4_D                      : 24
+#      LUT4_L                      : 44
+#      MUXCY                       : 154
+#      MUXCY_L                     : 74
+#      MUXF5                       : 86
+#      MUXF6                       : 9
+#      VCC                         : 3
+#      XORCY                       : 175
+# FlipFlops/Latches                : 671
+#      FD                          : 45
+#      FDC                         : 10
+#      FDCE                        : 30
+#      FDE                         : 207
+#      FDP                         : 41
+#      FDPE                        : 66
+#      FDR                         : 86
+#      FDRE                        : 142
+#      FDRS                        : 14
 #      FDRSE                       : 14
-#      FDS                         : 2
+#      FDS                         : 12
 #      FDSE                        : 3
-# Clock Buffers                    : 3
-#      BUFG                        : 2
+#      LDC                         : 1
+# RAMS                             : 5
+#      RAMB16_S1_S9                : 5
+# Shift Registers                  : 99
+#      SRL16                       : 32
+#      SRL16E                      : 1
+#      SRLC16E                     : 66
+# Clock Buffers                    : 4
+#      BUFG                        : 3
 #      BUFGP                       : 1
 # IO Buffers                       : 29
 #      IBUF                        : 13
 #      IOBUF                       : 1
 #      OBUF                        : 15
+# Others                           : 1
+#      BSCAN_SPARTAN3              : 1
 =========================================================================
 
 Device utilization summary:
@@ -938,12 +897,15 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                      365  out of   4656     7%  
- Number of Slice Flip Flops:            290  out of   9312     3%  
- Number of 4 input LUTs:                703  out of   9312     7%  
+ Number of Slices:                      732  out of   4656    15%  
+ Number of Slice Flip Flops:            671  out of   9312     7%  
+ Number of 4 input LUTs:               1154  out of   9312    12%  
+    Number used as logic:              1055
+    Number used as Shift registers:      99
  Number of IOs:                          30
  Number of bonded IOBs:                  30  out of    232    12%  
- Number of GCLKs:                         3  out of     24    12%  
+ Number of BRAMs:                         5  out of     20    25%  
+ Number of GCLKs:                         4  out of     24    16%  
 
 ---------------------------
 Partition Resource Summary:
@@ -963,124 +925,233 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
----------------------------------------------------------+-----------------------------------------------------+-------+
-Clock Signal                                             | Clock buffer(FF name)                               | Load  |
----------------------------------------------------------+-----------------------------------------------------+-------+
-MII_RX_CLK                                               | BUFGP                                               | 49    |
-i_clk_50mhz                                              | IBUF+BUFG                                           | 125   |
-s_tx_clock1(ethernet_inst/mii_gmii_io_inst/clock_tx_o1:O)| BUFG(*)(ethernet_inst/sync_tx_reset_inst/signal_tmp)| 116   |
----------------------------------------------------------+-----------------------------------------------------+-------+
-(*) This 1 clock signal(s) are generated by combinatorial logic,
+----------------------------------------------------------------------------------------------------+---------------------------------------------------------------+-------+
+Clock Signal                                                                                        | Clock buffer(FF name)                                         | Load  |
+----------------------------------------------------------------------------------------------------+---------------------------------------------------------------+-------+
+chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1                                                | BUFG                                                          | 154   |
+chipscope_icon_inst/U0/iUPDATE_OUT                                                                  | NONE(chipscope_icon_inst/U0/U_ICON/U_iDATA_CMD)               | 1     |
+MII_RX_CLK                                                                                          | BUFGP                                                         | 379   |
+chipscope_icon_inst/CONTROL0<13>(chipscope_icon_inst/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE:O)| NONE(*)(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC)| 1     |
+i_clk_50mhz                                                                                         | IBUF+BUFG                                                     | 128   |
+s_tx_clock1(ethernet_inst/mii_gmii_io_inst/clock_tx_o1:O)                                           | BUFG(*)(ethernet_inst/sync_tx_reset_inst/signal_tmp)          | 117   |
+----------------------------------------------------------------------------------------------------+---------------------------------------------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
-----------------------------------------------------------------------------------------+------------------------------------------------------+-------+
-Control Signal                                                                          | Buffer(FF name)                                      | Load  |
-----------------------------------------------------------------------------------------+------------------------------------------------------+-------+
-ethernet_inst/sync_tx_reset_inst/signal_o(ethernet_inst/sync_tx_reset_inst/signal_o:Q)  | NONE(ethernet_inst/framing_inst/mii_tx_enable_o)     | 9     |
-ethernet_inst/sync_rx_reset_inst/signal_o(ethernet_inst/sync_rx_reset_inst/signal_o:Q)  | NONE(ethernet_inst/framing_inst/rx_state_FSM_FFd1)   | 5     |
-ethernet_inst/reset_generator_inst/reset_o(ethernet_inst/reset_generator_inst/reset_o:Q)| NONE(ethernet_inst/sync_rx_reset_inst/signal_o)      | 4     |
-s_reset(s_reset1_INV_0:O)                                                               | NONE(ethernet_inst/reset_generator_inst/last_speed_0)| 4     |
-----------------------------------------------------------------------------------------+------------------------------------------------------+-------+
+-------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+-------+
+Control Signal                                                                                                                 | Buffer(FF name)                                                                                                                | Load  |
+-------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+-------+
+chipscope_icon_inst/CONTROL0<20>(chipscope_icon_inst/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[0].U_HCE:O)                           | NONE(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_SRL16.U_GANDX_SRL16/F_TW[0].U_TREG)| 64    |
+chipscope_ila_inst/N0(chipscope_ila_inst/XST_GND:G)                                                                            | NONE(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_RST/U_POR)                                                                           | 33    |
+chipscope_icon_inst/U0/U_ICON/U_CMD/iSEL_n(chipscope_icon_inst/U0/U_ICON/U_CMD/U_SEL_n:O)                                      | NONE(chipscope_icon_inst/U0/U_ICON/U_CMD/G_TARGET[10].I_NE0.U_TARGET)                                                          | 10    |
+ethernet_inst/sync_tx_reset_inst/signal_o(ethernet_inst/sync_tx_reset_inst/signal_o:Q)                                         | NONE(ethernet_inst/framing_inst/mii_tx_enable_o)                                                                               | 10    |
+ethernet_inst/sync_rx_reset_inst/signal_o(ethernet_inst/sync_rx_reset_inst/signal_o:Q)                                         | NONE(ethernet_inst/framing_inst/rx_state_FSM_FFd1)                                                                             | 5     |
+chipscope_ila_inst/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/iCLR(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_CLEAR:O)        | NONE(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_DOUT0)                                                              | 4     |
+chipscope_ila_inst/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/iCLR(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_CLEAR:O)      | NONE(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_DOUT0)                                                             | 4     |
+chipscope_ila_inst/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/iCLR(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_CLEAR:O)              | NONE(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_DOUT0)                                                                 | 4     |
+ethernet_inst/reset_generator_inst/reset_o(ethernet_inst/reset_generator_inst/reset_o:Q)                                       | NONE(ethernet_inst/sync_rx_reset_inst/signal_o)                                                                                | 4     |
+s_reset(s_reset1_INV_0:O)                                                                                                      | NONE(ethernet_inst/reset_generator_inst/last_speed_0)                                                                          | 4     |
+chipscope_ila_inst/U0/I_NO_D.U_ILA/iARM(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[3].U_FD:Q)             | NONE(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_FDCE)                                                                   | 2     |
+chipscope_icon_inst/CONTROL0<13>(chipscope_icon_inst/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE:O)                           | NONE(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_FDPE)                                                                   | 1     |
+chipscope_icon_inst/U0/U_ICON/iSEL_n(chipscope_icon_inst/U0/U_ICON/U_iSEL_n:O)                                                 | NONE(chipscope_icon_inst/U0/U_ICON/U_iDATA_CMD)                                                                                | 1     |
+chipscope_ila_inst/U0/I_NO_D.U_ILA/U_STAT/ACTRESET_pulse(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_STAT/U_RESET_EDGE/I_H2L.U_DOUT:Q)| NONE(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_STAT/U_RISING)                                                                       | 1     |
+chipscope_ila_inst/U0/I_NO_D.U_ILA/iRESET<1>(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_RST/G_RST[1].U_RST:Q)                        | NONE(chipscope_ila_inst/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_OREG.I_YES_OREG.U_OREG)                                | 1     |
+-------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 9.935ns (Maximum Frequency: 100.654MHz)
-   Minimum input arrival time before clock: 5.990ns
-   Maximum output required time after clock: 10.440ns
-   Maximum combinational path delay: 4.937ns
+   Minimum period: 9.826ns (Maximum Frequency: 101.770MHz)
+   Minimum input arrival time before clock: 8.201ns
+   Maximum output required time after clock: 10.474ns
+   Maximum combinational path delay: 5.021ns
 
 Timing Detail:
 --------------
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'MII_RX_CLK'
-  Clock period: 7.247ns (frequency: 137.988MHz)
-  Total number of paths / destination ports: 1278 / 129
+Timing constraint: Default period analysis for Clock 'chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1'
+  Clock period: 9.302ns (frequency: 107.501MHz)
+  Total number of paths / destination ports: 2623 / 363
 -------------------------------------------------------------------------
-Delay:               7.247ns (Levels of Logic = 5)
-  Source:            ethernet_inst/mii_gmii_inst/rx_data_o_0 (FF)
+Delay:               9.302ns (Levels of Logic = 5)
+  Source:            chipscope_icon_inst/U0/U_ICON/U_CMD/G_TARGET[12].I_NE0.U_TARGET (FF)
+  Destination:       chipscope_ila_inst/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE (FF)
+  Source Clock:      chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising
+  Destination Clock: chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising
+
+  Data Path: chipscope_icon_inst/U0/U_ICON/U_CMD/G_TARGET[12].I_NE0.U_TARGET to chipscope_ila_inst/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            19   0.591   1.260  U0/U_ICON/U_CMD/G_TARGET[12].I_NE0.U_TARGET (U0/U_ICON/iCORE_ID<0>)
+     LUT4:I0->O           32   0.704   1.297  U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[0].U_LUT (U0/U_ICON/iCORE_ID_SEL<0>)
+     LUT4:I2->O           15   0.704   1.021  U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[10].U_LCE (CONTROL0<14>)
+     end scope: 'chipscope_icon_inst'
+     begin scope: 'chipscope_ila_inst'
+     LUT4:I3->O            4   0.704   0.762  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/I_NI_GT_1.I3.U_LUT (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/lowAddr_rst)
+     LUT2:I0->O           14   0.704   1.000  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/I_NI_GT_1.U_highAddr_ce (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/highAddr_ce)
+     FDRE:CE                   0.555          U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE
+    ----------------------------------------
+    Total                      9.302ns (3.962ns logic, 5.340ns route)
+                                       (42.6% logic, 57.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'chipscope_icon_inst/U0/iUPDATE_OUT'
+  Clock period: 2.554ns (frequency: 391.543MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               2.554ns (Levels of Logic = 1)
+  Source:            chipscope_icon_inst/U0/U_ICON/U_iDATA_CMD (FF)
+  Destination:       chipscope_icon_inst/U0/U_ICON/U_iDATA_CMD (FF)
+  Source Clock:      chipscope_icon_inst/U0/iUPDATE_OUT rising
+  Destination Clock: chipscope_icon_inst/U0/iUPDATE_OUT rising
+
+  Data Path: chipscope_icon_inst/U0/U_ICON/U_iDATA_CMD to chipscope_icon_inst/U0/U_ICON/U_iDATA_CMD
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.591   0.531  U0/U_ICON/U_iDATA_CMD (U0/U_ICON/iDATA_CMD)
+     INV:I->O              1   0.704   0.420  U0/U_ICON/U_iDATA_CMD_n (U0/U_ICON/iDATA_CMD_n)
+     FDC:D                     0.308          U0/U_ICON/U_iDATA_CMD
+    ----------------------------------------
+    Total                      2.554ns (1.603ns logic, 0.951ns route)
+                                       (62.8% logic, 37.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'MII_RX_CLK'
+  Clock period: 7.136ns (frequency: 140.135MHz)
+  Total number of paths / destination ports: 2980 / 679
+-------------------------------------------------------------------------
+Delay:               7.136ns (Levels of Logic = 5)
+  Source:            ethernet_inst/framing_inst/rx_mac_address_byte_1 (FF)
   Destination:       ethernet_inst/framing_inst/rx_state_FSM_FFd2 (FF)
   Source Clock:      MII_RX_CLK rising
   Destination Clock: MII_RX_CLK rising
 
-  Data Path: ethernet_inst/mii_gmii_inst/rx_data_o_0 to ethernet_inst/framing_inst/rx_state_FSM_FFd2
+  Data Path: ethernet_inst/framing_inst/rx_mac_address_byte_1 to ethernet_inst/framing_inst/rx_state_FSM_FFd2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              9   0.591   0.855  ethernet_inst/mii_gmii_inst/rx_data_o_0 (ethernet_inst/mii_gmii_inst/rx_data_o_0)
-     LUT4:I2->O            1   0.704   0.595  ethernet_inst/framing_inst/rx_state_FSM_FFd2-In116 (ethernet_inst/framing_inst/rx_state_FSM_FFd2-In116)
-     LUT3:I0->O            1   0.704   0.455  ethernet_inst/framing_inst/rx_state_FSM_FFd2-In148_SW0 (N214)
-     LUT4:I2->O            1   0.704   0.499  ethernet_inst/framing_inst/rx_state_FSM_FFd2-In160 (ethernet_inst/framing_inst/rx_state_FSM_FFd2-In160)
-     LUT4:I1->O            1   0.704   0.424  ethernet_inst/framing_inst/rx_state_FSM_FFd2-In334 (ethernet_inst/framing_inst/rx_state_FSM_FFd2-In334)
+     FDE:C->Q             11   0.591   1.108  ethernet_inst/framing_inst/rx_mac_address_byte_1 (ethernet_inst/framing_inst/rx_mac_address_byte_1)
+     LUT4:I0->O            1   0.704   0.455  ethernet_inst/framing_inst/rx_state_FSM_FFd2-In189 (ethernet_inst/framing_inst/rx_state_FSM_FFd2-In189)
+     LUT3_L:I2->LO         1   0.704   0.275  ethernet_inst/framing_inst/rx_state_FSM_FFd2-In237_SW0 (N361)
+     LUT4:I0->O            1   0.704   0.455  ethernet_inst/framing_inst/rx_state_FSM_FFd2-In237 (ethernet_inst/framing_inst/rx_state_FSM_FFd2-In237)
+     LUT4:I2->O            1   0.704   0.424  ethernet_inst/framing_inst/rx_state_FSM_FFd2-In334 (ethernet_inst/framing_inst/rx_state_FSM_FFd2-In334)
      LUT4:I3->O            1   0.704   0.000  ethernet_inst/framing_inst/rx_state_FSM_FFd2-In372 (ethernet_inst/framing_inst/rx_state_FSM_FFd2-In)
      FDC:D                     0.308          ethernet_inst/framing_inst/rx_state_FSM_FFd2
     ----------------------------------------
-    Total                      7.247ns (4.419ns logic, 2.828ns route)
-                                       (61.0% logic, 39.0% route)
+    Total                      7.136ns (4.419ns logic, 2.717ns route)
+                                       (61.9% logic, 38.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'i_clk_50mhz'
-  Clock period: 7.420ns (frequency: 134.771MHz)
-  Total number of paths / destination ports: 3325 / 235
+  Clock period: 7.386ns (frequency: 135.393MHz)
+  Total number of paths / destination ports: 3353 / 239
 -------------------------------------------------------------------------
-Delay:               7.420ns (Levels of Logic = 5)
-  Source:            ethernet_inst/miim_gen.miim_control_inst/register_address_1 (FF)
-  Destination:       ethernet_inst/miim_gen.miim_control_inst/register_address_2 (FF)
+Delay:               7.386ns (Levels of Logic = 5)
+  Source:            ethernet_inst/miim_gen.miim_control_inst/state_0 (FF)
+  Destination:       ethernet_inst/miim_gen.miim_control_inst/after_ack_state_4 (FF)
   Source Clock:      i_clk_50mhz rising
   Destination Clock: i_clk_50mhz rising
 
-  Data Path: ethernet_inst/miim_gen.miim_control_inst/register_address_1 to ethernet_inst/miim_gen.miim_control_inst/register_address_2
+  Data Path: ethernet_inst/miim_gen.miim_control_inst/state_0 to ethernet_inst/miim_gen.miim_control_inst/after_ack_state_4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              8   0.591   0.932  ethernet_inst/miim_gen.miim_control_inst/register_address_1 (ethernet_inst/miim_gen.miim_control_inst/register_address_1)
-     LUT2_L:I0->LO         1   0.704   0.104  ethernet_inst/miim_gen.miim_control_inst/register_address_cmp_eq0000_SW0 (N62)
-     LUT4:I3->O            4   0.704   0.666  ethernet_inst/miim_gen.miim_control_inst/register_address_cmp_eq0000 (ethernet_inst/miim_gen.miim_control_inst/register_address_cmp_eq0000)
-     LUT2:I1->O            6   0.704   0.844  ethernet_inst/miim_gen.miim_control_inst/register_address_mux0000<3>21 (ethernet_inst/miim_gen.miim_control_inst/N43)
-     LUT4:I0->O            1   0.704   0.455  ethernet_inst/miim_gen.miim_control_inst/register_address_mux0000<2>27 (ethernet_inst/miim_gen.miim_control_inst/register_address_mux0000<2>27)
-     LUT4:I2->O            1   0.704   0.000  ethernet_inst/miim_gen.miim_control_inst/register_address_mux0000<2>35 (ethernet_inst/miim_gen.miim_control_inst/register_address_mux0000<2>)
-     FDE:D                     0.308          ethernet_inst/miim_gen.miim_control_inst/register_address_2
+     FDS:C->Q             31   0.591   1.297  ethernet_inst/miim_gen.miim_control_inst/state_0 (ethernet_inst/miim_gen.miim_control_inst/state_0)
+     LUT4:I2->O            1   0.704   0.424  ethernet_inst/miim_gen.miim_control_inst/register_address_mux0000<3>1_SW0 (N155)
+     LUT4_D:I3->LO         1   0.704   0.135  ethernet_inst/miim_gen.miim_control_inst/register_address_mux0000<3>1 (N471)
+     LUT3:I2->O            8   0.704   0.836  ethernet_inst/miim_gen.miim_control_inst/after_ack_state_mux0000<2>1111 (ethernet_inst/miim_gen.miim_control_inst/N22)
+     LUT4_L:I1->LO         1   0.704   0.275  ethernet_inst/miim_gen.miim_control_inst/after_ack_state_mux0000<4>20 (ethernet_inst/miim_gen.miim_control_inst/after_ack_state_mux0000<4>20)
+     LUT2:I0->O            1   0.704   0.000  ethernet_inst/miim_gen.miim_control_inst/after_ack_state_mux0000<4>29 (ethernet_inst/miim_gen.miim_control_inst/after_ack_state_mux0000<4>)
+     FDE:D                     0.308          ethernet_inst/miim_gen.miim_control_inst/after_ack_state_4
     ----------------------------------------
-    Total                      7.420ns (4.419ns logic, 3.001ns route)
-                                       (59.6% logic, 40.4% route)
+    Total                      7.386ns (4.419ns logic, 2.967ns route)
+                                       (59.8% logic, 40.2% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 's_tx_clock1'
-  Clock period: 9.935ns (frequency: 100.654MHz)
-  Total number of paths / destination ports: 8783 / 237
+  Clock period: 9.826ns (frequency: 101.770MHz)
+  Total number of paths / destination ports: 8846 / 238
 -------------------------------------------------------------------------
-Delay:               9.935ns (Levels of Logic = 7)
-  Source:            ethernet_inst/framing_inst/tx_state_FSM_FFd3 (FF)
+Delay:               9.826ns (Levels of Logic = 7)
+  Source:            ethernet_inst/framing_inst/tx_state_FSM_FFd4 (FF)
   Destination:       ethernet_inst/framing_inst/tx_frame_check_sequence_11 (FF)
   Source Clock:      s_tx_clock1 rising
   Destination Clock: s_tx_clock1 rising
 
-  Data Path: ethernet_inst/framing_inst/tx_state_FSM_FFd3 to ethernet_inst/framing_inst/tx_frame_check_sequence_11
+  Data Path: ethernet_inst/framing_inst/tx_state_FSM_FFd4 to ethernet_inst/framing_inst/tx_frame_check_sequence_11
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q            60   0.591   1.446  ethernet_inst/framing_inst/tx_state_FSM_FFd3 (ethernet_inst/framing_inst/tx_state_FSM_FFd3)
-     LUT2:I0->O            1   0.704   0.424  ethernet_inst/framing_inst/data_out_mux0004<3>210_SW2 (N151)
-     LUT4_L:I3->LO         1   0.704   0.104  ethernet_inst/framing_inst/data_out_mux0004<3>210 (ethernet_inst/framing_inst/N71)
-     LUT4:I3->O            1   0.704   0.424  ethernet_inst/framing_inst/data_out_mux0004<3>88 (ethernet_inst/framing_inst/data_out_mux0004<3>88)
+     FDCE:C->Q            60   0.591   1.306  ethernet_inst/framing_inst/tx_state_FSM_FFd4 (ethernet_inst/framing_inst/tx_state_FSM_FFd4)
+     LUT4_D:I2->O          1   0.704   0.455  ethernet_inst/framing_inst/data_out_mux0004<3>210_SW3 (N277)
+     LUT4:I2->O            1   0.704   0.424  ethernet_inst/framing_inst/data_out_mux0004<3>210 (ethernet_inst/framing_inst/N71)
+     LUT4_L:I3->LO         1   0.704   0.104  ethernet_inst/framing_inst/data_out_mux0004<3>88 (ethernet_inst/framing_inst/data_out_mux0004<3>88)
      LUT4:I3->O           12   0.704   1.040  ethernet_inst/framing_inst/data_out_mux0004<3>120 (ethernet_inst/framing_inst/data_out_mux0004<3>)
      LUT2:I1->O            3   0.704   0.566  ethernet_inst/framing_inst/Mmux_tx_frame_check_sequence_mux00001031 (ethernet_inst/framing_inst/N81)
-     LUT4_L:I2->LO         1   0.704   0.104  ethernet_inst/framing_inst/Mmux_tx_frame_check_sequence_mux000051_SW0_SW0_SW0 (N160)
+     LUT4_L:I2->LO         1   0.704   0.104  ethernet_inst/framing_inst/Mmux_tx_frame_check_sequence_mux000051_SW0_SW0_SW0 (N285)
      LUT4:I3->O            1   0.704   0.000  ethernet_inst/framing_inst/Mmux_tx_frame_check_sequence_mux000051 (ethernet_inst/framing_inst/tx_frame_check_sequence_mux0000<11>)
      FDE:D                     0.308          ethernet_inst/framing_inst/tx_frame_check_sequence_11
     ----------------------------------------
-    Total                      9.935ns (5.827ns logic, 4.108ns route)
-                                       (58.7% logic, 41.3% route)
+    Total                      9.826ns (5.827ns logic, 3.999ns route)
+                                       (59.3% logic, 40.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1'
+  Total number of paths / destination ports: 199 / 175
+-------------------------------------------------------------------------
+Offset:              8.201ns (Levels of Logic = 5)
+  Source:            chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS:SHIFT (PAD)
+  Destination:       chipscope_ila_inst/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE (FF)
+  Destination Clock: chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising
+
+  Data Path: chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS:SHIFT to chipscope_ila_inst/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    BSCAN_SPARTAN3:SHIFT    3   0.000   0.610  U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS (U0/iSHIFT_OUT)
+     LUT2:I1->O           32   0.704   1.437  U0/U_ICON/U_CTRL_OUT/U_DATA_VALID (U0/U_ICON/U_CTRL_OUT/iDATA_VALID)
+     LUT4:I0->O           15   0.704   1.021  U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[10].U_LCE (CONTROL0<14>)
+     end scope: 'chipscope_icon_inst'
+     begin scope: 'chipscope_ila_inst'
+     LUT4:I3->O            4   0.704   0.762  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/I_NI_GT_1.I3.U_LUT (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/lowAddr_rst)
+     LUT2:I0->O           14   0.704   1.000  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/I_NI_GT_1.U_highAddr_ce (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/highAddr_ce)
+     FDRE:CE                   0.555          U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE
+    ----------------------------------------
+    Total                      8.201ns (3.371ns logic, 4.830ns route)
+                                       (41.1% logic, 58.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'MII_RX_CLK'
+  Total number of paths / destination ports: 18 / 17
+-------------------------------------------------------------------------
+Offset:              2.898ns (Levels of Logic = 2)
+  Source:            MII_RX_DV (PAD)
+  Destination:       ethernet_inst/mii_gmii_inst/rx_state_FSM_FFd2 (FF)
+  Destination Clock: MII_RX_CLK rising
+
+  Data Path: MII_RX_DV to ethernet_inst/mii_gmii_inst/rx_state_FSM_FFd2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             5   1.218   0.668  MII_RX_DV_IBUF (MII_RX_DV_IBUF)
+     LUT3:I2->O            1   0.704   0.000  ethernet_inst/mii_gmii_inst/rx_frame_o_mux00021 (ethernet_inst/mii_gmii_inst/rx_frame_o_mux0002)
+     FDE:D                     0.308          ethernet_inst/mii_gmii_inst/rx_frame_o
+    ----------------------------------------
+    Total                      2.898ns (2.230ns logic, 0.668ns route)
+                                       (76.9% logic, 23.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'i_clk_50mhz'
-  Total number of paths / destination ports: 126 / 121
+  Total number of paths / destination ports: 129 / 124
 -------------------------------------------------------------------------
 Offset:              5.990ns (Levels of Logic = 3)
   Source:            i_reset_n (PAD)
@@ -1100,51 +1171,31 @@ Offset:              5.990ns (Levels of Logic = 3)
                                        (59.0% logic, 41.0% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'MII_RX_CLK'
-  Total number of paths / destination ports: 14 / 13
--------------------------------------------------------------------------
-Offset:              2.898ns (Levels of Logic = 2)
-  Source:            MII_RX_DV (PAD)
-  Destination:       ethernet_inst/mii_gmii_inst/rx_state_FSM_FFd2 (FF)
-  Destination Clock: MII_RX_CLK rising
-
-  Data Path: MII_RX_DV to ethernet_inst/mii_gmii_inst/rx_state_FSM_FFd2
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             5   1.218   0.668  MII_RX_DV_IBUF (MII_RX_DV_IBUF)
-     LUT3:I2->O            1   0.704   0.000  ethernet_inst/mii_gmii_inst/rx_frame_o_mux00021 (ethernet_inst/mii_gmii_inst/rx_frame_o_mux0002)
-     FDE:D                     0.308          ethernet_inst/mii_gmii_inst/rx_frame_o
-    ----------------------------------------
-    Total                      2.898ns (2.230ns logic, 0.668ns route)
-                                       (76.9% logic, 23.1% route)
-
-=========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 's_tx_clock1'
   Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              3.980ns (Levels of Logic = 3)
-  Source:            SW<2> (PAD)
-  Destination:       switch_driver_inst/o_tx_data_2 (FF)
+Offset:              4.064ns (Levels of Logic = 3)
+  Source:            SW<3> (PAD)
+  Destination:       switch_driver_inst/o_tx_data_3 (FF)
   Destination Clock: s_tx_clock1 rising
 
-  Data Path: SW<2> to switch_driver_inst/o_tx_data_2
+  Data Path: SW<3> to switch_driver_inst/o_tx_data_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.218   0.451  SW_2_IBUF (SW_2_IBUF)
-     LUT4:I3->O            1   0.704   0.595  switch_driver_inst/o_tx_data_2_mux00007 (switch_driver_inst/o_tx_data_2_mux00007)
-     LUT2:I0->O            1   0.704   0.000  switch_driver_inst/o_tx_data_2_mux0000231 (switch_driver_inst/o_tx_data_2_mux000023)
-     FDRS:D                    0.308          switch_driver_inst/o_tx_data_2
+     IBUF:I->O             3   1.218   0.535  SW_3_IBUF (SW_3_IBUF)
+     LUT4:I3->O            1   0.704   0.595  switch_driver_inst/o_tx_data_3_mux00007 (switch_driver_inst/o_tx_data_3_mux00007)
+     LUT2:I0->O            1   0.704   0.000  switch_driver_inst/o_tx_data_3_mux0000311 (switch_driver_inst/o_tx_data_3_mux000031)
+     FDRS:D                    0.308          switch_driver_inst/o_tx_data_3
     ----------------------------------------
-    Total                      3.980ns (2.934ns logic, 1.046ns route)
-                                       (73.7% logic, 26.3% route)
+    Total                      4.064ns (2.934ns logic, 1.130ns route)
+                                       (72.2% logic, 27.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'i_clk_50mhz'
   Total number of paths / destination ports: 64 / 3
 -------------------------------------------------------------------------
-Offset:              10.440ns (Levels of Logic = 7)
+Offset:              10.474ns (Levels of Logic = 7)
   Source:            ethernet_inst/miim_gen.miim_inst/data_bit_position_0 (FF)
   Destination:       MDIO (PAD)
   Source Clock:      i_clk_50mhz rising
@@ -1153,17 +1204,17 @@ Offset:              10.440ns (Levels of Logic = 7)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             14   0.591   1.079  ethernet_inst/miim_gen.miim_inst/data_bit_position_0 (ethernet_inst/miim_gen.miim_inst/data_bit_position_0)
+     FDE:C->Q             16   0.591   1.113  ethernet_inst/miim_gen.miim_inst/data_bit_position_0 (ethernet_inst/miim_gen.miim_inst/data_bit_position_0)
      LUT4:I1->O            2   0.704   0.526  ethernet_inst/miim_gen.miim_inst/mdio_io_mux000046 (ethernet_inst/miim_gen.miim_inst/mdio_io_mux000046)
-     LUT4:I1->O            1   0.704   0.000  ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089_G (N305)
+     LUT4:I1->O            1   0.704   0.000  ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089_G (N428)
      MUXF5:I1->O           1   0.321   0.499  ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089 (ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089)
      LUT4:I1->O            1   0.704   0.595  ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000120 (ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000120)
      LUT4:I0->O            1   0.704   0.000  ethernet_inst/miim_gen.miim_inst/mdio_io_mux00001772 (ethernet_inst/miim_gen.miim_inst/mdio_io_mux00001771)
      MUXF5:I0->O           1   0.321   0.420  ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000177_f5 (ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000)
      IOBUF:I->IO               3.272          MDIO_IOBUF (MDIO)
     ----------------------------------------
-    Total                     10.440ns (7.321ns logic, 3.119ns route)
-                                       (70.1% logic, 29.9% route)
+    Total                     10.474ns (7.321ns logic, 3.153ns route)
+                                       (69.9% logic, 30.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 's_tx_clock1'
@@ -1204,10 +1255,29 @@ Offset:              4.283ns (Levels of Logic = 1)
                                        (90.2% logic, 9.8% route)
 
 =========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              0.591ns (Levels of Logic = 0)
+  Source:            chipscope_icon_inst/U0/U_ICON/U_TDO_reg (FF)
+  Destination:       chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS:TDO1 (PAD)
+  Source Clock:      chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising
+
+  Data Path: chipscope_icon_inst/U0/U_ICON/U_TDO_reg to chipscope_icon_inst/U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS:TDO1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              0   0.591   0.000  U0/U_ICON/U_TDO_reg (U0/U_ICON/iTDO)
+    BSCAN_SPARTAN3:TDO1        0.000          U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS
+    ----------------------------------------
+    Total                      0.591ns (0.591ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+=========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Delay:               4.937ns (Levels of Logic = 2)
+Delay:               5.021ns (Levels of Logic = 2)
   Source:            SW<3> (PAD)
   Destination:       LED<3> (PAD)
 
@@ -1215,24 +1285,24 @@ Delay:               4.937ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.218   0.447  SW_3_IBUF (SW_3_IBUF)
+     IBUF:I->O             3   1.218   0.531  SW_3_IBUF (SW_3_IBUF)
      OBUF:I->O                 3.272          LED_3_OBUF (LED<3>)
     ----------------------------------------
-    Total                      4.937ns (4.490ns logic, 0.447ns route)
-                                       (90.9% logic, 9.1% route)
+    Total                      5.021ns (4.490ns logic, 0.531ns route)
+                                       (89.4% logic, 10.6% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 11.00 secs
-Total CPU time to Xst completion: 3.12 secs
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 4.06 secs
  
 --> 
 
 
-Total memory usage is 663564 kilobytes
+Total memory usage is 672108 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  140 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :   79 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

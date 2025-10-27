@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator P.20131013
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+promgen -w -p mcs -c FF -o /home/ise/ISE_146/ethernet//top -x xc17v02 -u 00000000 /home/ise/ISE_146/ethernet/top.bit 
+
+PROM /home/ise/ISE_146/ethernet/top.prm map: Mon Oct 27 11:00:59 2025
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          329K
+PROM start    0000:0000
+PROM end      0005:26ff
+PROM checksum 00e81808
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    0004:547f     Oct 27 10:46:40 2025 /home/ise/ISE_146/ethernet/top.bit

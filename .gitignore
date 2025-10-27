@@ -1,0 +1,5 @@
+ipcore_dir/
+*.log
+*.bld
+*.csv
+*.html

@@ -1,3 +1,5 @@
+vhdl work "/home/ise/ISE_146/ethernet/ipcore_dir/con.vhd"
+vhdl work "/home/ise/ISE_146/ethernet/ipcore_dir/ila.vhd"
 vhdl ethernet_mac "/home/ise/ISE_146/ethernet/ethernet_mac/utility.vhd"
 vhdl ethernet_mac "/home/ise/ISE_146/ethernet/ethernet_mac/crc.vhd"
 vhdl ethernet_mac "/home/ise/ISE_146/ethernet/ethernet_mac/miim_types.vhd"
