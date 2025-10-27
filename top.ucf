@@ -38,8 +38,18 @@ NET "MDC"  LOC = "P9"  | IOSTANDARD = LVCMOS33;
 NET "MDIO" LOC = "U5"  | IOSTANDARD = LVCMOS33;
 
 #==============================================================
-# LED Çıkışları (8-bit binary gösterim için)
-# Ethernet'ten gelen veriyi binary formatta gösterecek
+# Switch Girişleri (4-bit değer seçimi için)
+#==============================================================
+NET "SW<0>" LOC = "L13" | IOSTANDARD = LVTTL | PULLUP;
+NET "SW<1>" LOC = "L14" | IOSTANDARD = LVTTL | PULLUP;
+NET "SW<2>" LOC = "H18" | IOSTANDARD = LVTTL | PULLUP;
+NET "SW<3>" LOC = "N17" | IOSTANDARD = LVTTL | PULLUP;
+
+#==============================================================
+# LED Çıkışları
+# LED<7>   : RX aktivitesi (veri geldi mi?)
+# LED<6:4> : Debug (şimdilik boş)
+# LED<3:0> : Switch değerleri (feedback)
 #==============================================================
 NET "LED<7>" LOC = "F9"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
 NET "LED<6>" LOC = "E9"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;

@@ -19,6 +19,9 @@ entity top is
         i_clk_50mhz   : in  STD_LOGIC;
         i_reset_n     : in  STD_LOGIC;
 
+        -- Switch Inputs (4-bit value)
+        SW            : in  STD_LOGIC_VECTOR(3 downto 0);
+
         -- MII Interface (PHY pins)
         MII_RX_CLK    : in  STD_LOGIC;
         MII_RXD       : in  STD_LOGIC_VECTOR (3 downto 0);
@@ -37,7 +40,10 @@ entity top is
         -- PHY Reset Pin
         o_phy_reset_n : out STD_LOGIC;
         
-        -- LED Outputs (8-bit binary display)
+        -- LED Outputs
+        -- LED<7>   : RX Activity (frame received)
+        -- LED<6:4> : Debug (reserved)
+        -- LED<3:0> : Switch feedback
         LED           : out STD_LOGIC_VECTOR(7 downto 0)
     );
 end top;
@@ -46,6 +52,33 @@ end top;
 -- ARCHITECTURE
 ----------------------------------------------------------------------------------
 architecture Behavioral of top is
+
+    -- Component Declaration: LED Driver
+    component led_driver is
+        Port (
+            i_rx_clock    : in  STD_LOGIC;
+            i_rx_reset    : in  STD_LOGIC;
+            i_rx_frame    : in  STD_LOGIC;
+            i_switch      : in  STD_LOGIC_VECTOR(3 downto 0);
+            o_led         : out STD_LOGIC_VECTOR(7 downto 0)
+        );
+    end component;
+    
+    -- Component Declaration: Switch Driver
+    component switch_driver is
+        Generic (
+            G_MAC_ADDRESS  : std_logic_vector(47 downto 0) := x"000A35123456"
+        );
+        Port (
+            i_tx_clock     : in  STD_LOGIC;
+            i_tx_reset     : in  STD_LOGIC;
+            i_switch       : in  STD_LOGIC_VECTOR(3 downto 0);
+            o_tx_enable    : out STD_LOGIC;
+            o_tx_data      : out STD_LOGIC_VECTOR(7 downto 0);
+            i_tx_byte_sent : in  STD_LOGIC;
+            i_tx_busy      : in  STD_LOGIC
+        );
+    end component;
 
     -- Component Declaration for GitHub ethernet_mac
     component ethernet is
@@ -95,7 +128,7 @@ architecture Behavioral of top is
             rx_data_o          : out   t_ethernet_data;
             rx_byte_received_o : out   std_ulogic;
             rx_error_o         : out   std_ulogic
-        );
+      );
     end component;
 
     -- Signal Declarations
@@ -136,8 +169,11 @@ architecture Behavioral of top is
     signal s_rx_byte_received : std_ulogic;
     signal s_rx_error       : std_ulogic;
     
-    -- LED Display Register
-    signal s_led_data       : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+    -- Component Interface Signals
+    signal s_tx_enable_slv  : std_logic;
+    signal s_tx_data_slv    : std_logic_vector(7 downto 0);
+    signal s_tx_byte_sent_slv : std_logic;
+    signal s_tx_busy_slv    : std_logic;
     
     -- Type conversion functions
     function to_std_logic(u : std_ulogic) return std_logic is
@@ -185,8 +221,11 @@ begin
     -- MDIO Management Signals
     MDC <= to_std_logic(s_mdc);
     
-    -- LED Output (display received data in binary)
-    LED <= s_led_data;
+    -- Type Conversions for Component Interfaces
+    s_tx_enable <= to_std_ulogic(s_tx_enable_slv);
+    s_tx_data <= to_std_ulogic_vector(s_tx_data_slv);
+    s_tx_byte_sent_slv <= to_std_logic(s_tx_byte_sent);
+    s_tx_busy_slv <= to_std_logic(s_tx_busy);
 
     ----------------------------------------------------------------------------------
     -- Ethernet MAC Instantiation
@@ -249,45 +288,34 @@ begin
         );
 
     ----------------------------------------------------------------------------------
-    -- TX Logic: Simple test - Send nothing for now
+    -- Switch Driver Component Instantiation
+    -- Handles TX frame generation with switch value
     ----------------------------------------------------------------------------------
-    process(s_tx_clock)
-    begin
-        if rising_edge(s_tx_clock) then
-            if s_tx_reset = '1' then
-                s_tx_enable <= '0';
-                s_tx_data   <= (others => '0');
-            else
-                -- TODO: Add your packet transmission logic here
-                s_tx_enable <= '0';
-                s_tx_data   <= (others => '0');
-            end if;
-        end if;
-    end process;
+    switch_driver_inst : component switch_driver
+        generic map (
+            G_MAC_ADDRESS => x"000A35123456"  -- Same as C_MAC_ADDRESS
+        )
+        port map (
+            i_tx_clock     => to_std_logic(s_tx_clock),
+            i_tx_reset     => to_std_logic(s_tx_reset),
+            i_switch       => SW,
+            o_tx_enable    => s_tx_enable_slv,
+            o_tx_data      => s_tx_data_slv,
+            i_tx_byte_sent => s_tx_byte_sent_slv,
+            i_tx_busy      => s_tx_busy_slv
+        );
 
     ----------------------------------------------------------------------------------
-    -- RX Logic: Receive packets and display data on LEDs
+    -- LED Driver Component Instantiation
+    -- Handles RX activity detection and LED display
     ----------------------------------------------------------------------------------
-    process(s_rx_clock)
-    begin
-        if rising_edge(s_rx_clock) then
-            if s_rx_reset = '1' then
-                -- Reset: Turn off all LEDs
-                s_led_data <= (others => '0');
-            else
-                -- When receiving a frame
-                if s_rx_frame = '1' and s_rx_byte_received = '1' then
-                    -- Display received byte on LEDs (binary format)
-                    -- Convert std_ulogic_vector to std_logic_vector
-                    s_led_data <= to_std_logic_vector(s_rx_data);
-                end if;
-                
-                -- Check for errors (blink all LEDs on error)
-                if s_rx_error = '1' then
-                    s_led_data <= (others => '1');  -- All LEDs ON on error
-                end if;
-            end if;
-        end if;
-    end process;
+    led_driver_inst : component led_driver
+        port map (
+            i_rx_clock => to_std_logic(s_rx_clock),
+            i_rx_reset => to_std_logic(s_rx_reset),
+            i_rx_frame => to_std_logic(s_rx_frame),
+            i_switch   => SW,
+            o_led      => LED
+        );
 
 end Behavioral;

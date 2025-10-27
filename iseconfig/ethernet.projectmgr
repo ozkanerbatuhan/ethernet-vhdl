@@ -8,6 +8,7 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/Unassigned User Library Modules</ClosedNode>
+         <ClosedNode>/mii_gmii_io - simple |home|ise|ISE_146|ethernet|ethernet_mac|generic|mii_gmii_io_simple.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
          <SelectedItem>top - Behavioral (/home/ise/ISE_146/ethernet/top.vhd)</SelectedItem>
@@ -59,7 +60,7 @@
          <ClosedNode>work</ClosedNode>
       </ClosedNodes>
       <SelectedItems/>
-      <ScrollbarPosition orientation="vertical" >10</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >12</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000119000000010001000100000000000000000000000064ffffffff000000810000000000000001000001190000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>

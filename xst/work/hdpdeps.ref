@@ -1,8 +1,20 @@
-V3 5
-FL /home/ise/ISE_146/ethernet/top.vhd 2025/10/26.23:57:26 P.20131013
-EN work/top 1761506268 FL /home/ise/ISE_146/ethernet/top.vhd \
+V3 13
+FL /home/ise/ISE_146/ethernet/led_driver.vhd 2025/10/27.01:09:45 P.20131013
+EN work/led_driver 1761510827 FL /home/ise/ISE_146/ethernet/led_driver.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/led_driver/Behavioral 1761510828 \
+      FL /home/ise/ISE_146/ethernet/led_driver.vhd EN work/led_driver 1761510827
+FL /home/ise/ISE_146/ethernet/switch_driver.vhd 2025/10/27.01:11:48 P.20131013
+EN work/switch_driver 1761510825 FL /home/ise/ISE_146/ethernet/switch_driver.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
-      LB ethernet_mac PH ethernet_mac/ethernet_types 1761506243 \
-      PB ethernet_mac/miim_types 1761506245
-AR work/top/Behavioral 1761506269 \
-      FL /home/ise/ISE_146/ethernet/top.vhd EN work/top 1761506268 CP ethernet
+      LB ethernet_mac PH ethernet_mac/ethernet_types 1761510800
+AR work/switch_driver/Behavioral 1761510826 \
+      FL /home/ise/ISE_146/ethernet/switch_driver.vhd EN work/switch_driver 1761510825
+FL /home/ise/ISE_146/ethernet/top.vhd 2025/10/27.01:09:45 P.20131013
+EN work/top 1761510829 FL /home/ise/ISE_146/ethernet/top.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
+      LB ethernet_mac PH ethernet_mac/ethernet_types 1761510800 \
+      PB ethernet_mac/miim_types 1761510802
+AR work/top/Behavioral 1761510830 \
+      FL /home/ise/ISE_146/ethernet/top.vhd EN work/top 1761510829 CP ethernet \
+      CP switch_driver CP led_driver

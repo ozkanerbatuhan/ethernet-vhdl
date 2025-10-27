@@ -1,10 +1,14 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sun Oct 26 19:18:04 2025
+// Written by: Map P.20131013 on Sun Oct 26 20:35:17 2025
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "MDC" LOCATE = SITE "P9" LEVEL 1;
 COMP "MDIO" LOCATE = SITE "U5" LEVEL 1;
+COMP "SW<0>" LOCATE = SITE "L13" LEVEL 1;
+COMP "SW<1>" LOCATE = SITE "L14" LEVEL 1;
+COMP "SW<2>" LOCATE = SITE "H18" LEVEL 1;
+COMP "SW<3>" LOCATE = SITE "N17" LEVEL 1;
 COMP "i_reset_n" LOCATE = SITE "V4" LEVEL 1;
 COMP "o_phy_reset_n" LOCATE = SITE "T17" LEVEL 1;
 COMP "LED<0>" LOCATE = SITE "F12" LEVEL 1;

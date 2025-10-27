@@ -1,2 +1,6 @@
-EN top NULL /home/ise/ISE_146/ethernet/top.vhd sub00/vhpl00 1761506268
-AR top behavioral /home/ise/ISE_146/ethernet/top.vhd sub00/vhpl01 1761506269
+AR led_driver behavioral /home/ise/ISE_146/ethernet/led_driver.vhd sub00/vhpl03 1761510828
+EN switch_driver NULL /home/ise/ISE_146/ethernet/switch_driver.vhd sub00/vhpl00 1761510825
+AR switch_driver behavioral /home/ise/ISE_146/ethernet/switch_driver.vhd sub00/vhpl01 1761510826
+EN top NULL /home/ise/ISE_146/ethernet/top.vhd sub00/vhpl04 1761510829
+EN led_driver NULL /home/ise/ISE_146/ethernet/led_driver.vhd sub00/vhpl02 1761510827
+AR top behavioral /home/ise/ISE_146/ethernet/top.vhd sub00/vhpl05 1761510830
