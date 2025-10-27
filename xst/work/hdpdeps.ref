@@ -1,8 +1,8 @@
 V3 5
-FL /home/ise/ISE_146/ethernet/top.vhd 2025/10/26.17:38:02 P.20131013
-EN work/top 1761500592 FL /home/ise/ISE_146/ethernet/top.vhd \
+FL /home/ise/ISE_146/ethernet/top.vhd 2025/10/26.23:57:26 P.20131013
+EN work/top 1761506268 FL /home/ise/ISE_146/ethernet/top.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 \
-      LB ethernet_mac PH ethernet_mac/ethernet_types 1761500567 \
-      PB ethernet_mac/miim_types 1761500569
-AR work/top/Behavioral 1761500593 \
-      FL /home/ise/ISE_146/ethernet/top.vhd EN work/top 1761500592 CP ethernet
+      LB ethernet_mac PH ethernet_mac/ethernet_types 1761506243 \
+      PB ethernet_mac/miim_types 1761506245
+AR work/top/Behavioral 1761506269 \
+      FL /home/ise/ISE_146/ethernet/top.vhd EN work/top 1761506268 CP ethernet
