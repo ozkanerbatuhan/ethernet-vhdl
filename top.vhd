@@ -247,22 +247,6 @@ begin
     s_tx_byte_sent_slv <= to_std_logic(s_tx_byte_sent);
     s_tx_busy_slv <= to_std_logic(s_tx_busy);
     
-    ----------------------------------------------------------------------------------
-    -- ChipScope Debug Trigger Signals (32-bit)
-    -- This allows real-time monitoring of Ethernet traffic
-    ----------------------------------------------------------------------------------
-    -- TRIG0[31:24] = RX Data (8-bit)
-    -- TRIG0[23:16] = TX Data (8-bit)
-    -- TRIG0[15]    = RX Frame
-    -- TRIG0[14]    = TX Enable
-    -- TRIG0[13]    = RX Byte Received
-    -- TRIG0[12]    = TX Byte Sent
-    -- TRIG0[11]    = RX Error
-    -- TRIG0[10]    = TX Busy
-    -- TRIG0[9]     = Link Up
-    -- TRIG0[8]     = RX Reset
-    -- TRIG0[7:4]   = Switch Value (4-bit)
-    -- TRIG0[3:0]   = LED Value (lower 4 bits)
     s_chipscope_trig(31 downto 24) <= to_std_logic_vector(s_rx_data);
     s_chipscope_trig(23 downto 16) <= s_tx_data_slv;
     s_chipscope_trig(15) <= to_std_logic(s_rx_frame);
@@ -335,10 +319,6 @@ begin
             rx_error_o         => s_rx_error
         );
 
-    ----------------------------------------------------------------------------------
-    -- Switch Driver Component Instantiation
-    -- Handles TX frame generation with switch value
-    ----------------------------------------------------------------------------------
     switch_driver_inst : component switch_driver
         generic map (
             G_MAC_ADDRESS => x"000A35123456"  -- Same as C_MAC_ADDRESS
@@ -353,10 +333,6 @@ begin
             i_tx_busy      => s_tx_busy_slv
         );
 
-    ----------------------------------------------------------------------------------
-    -- LED Driver Component Instantiation
-    -- Handles RX activity detection and LED display
-    ----------------------------------------------------------------------------------
     led_driver_inst : component led_driver
         port map (
             i_rx_clock => to_std_logic(s_rx_clock),
@@ -366,21 +342,11 @@ begin
             o_led      => LED
         );
 
-    ----------------------------------------------------------------------------------
-    -- ChipScope ICON (Control Interface)
-    -- Provides control bus for ChipScope cores
-    ----------------------------------------------------------------------------------
     chipscope_icon_inst : component con
         port map (
             CONTROL0 => s_chipscope_control
         );
 
-    ----------------------------------------------------------------------------------
-    -- ChipScope ILA (Integrated Logic Analyzer)
-    -- Captures and displays internal signals in real-time
-    -- Clock: RX Clock (captures Ethernet receive events)
-    -- Trigger: 32-bit signal with RX/TX data and control signals
-    ----------------------------------------------------------------------------------
     chipscope_ila_inst : component ila
         port map (
             CONTROL => s_chipscope_control,
