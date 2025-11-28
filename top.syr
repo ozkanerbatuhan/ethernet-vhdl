@@ -194,11 +194,11 @@ Analyzing hierarchy for entity <miim_control> in library <ethernet_mac> (archite
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <top> in library <work> (Architecture <behavioral>).
-WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 281: Unconnected output port 'mii_tx_er_o' of component 'ethernet'.
-WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 281: Unconnected output port 'gmii_gtx_clk_o' of component 'ethernet'.
-WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 281: Unconnected output port 'rgmii_tx_ctl_o' of component 'ethernet'.
-WARNING:Xst:2211 - "/home/ise/ISE_146/ethernet/top.vhd" line 373: Instantiating black box module <con>.
-WARNING:Xst:2211 - "/home/ise/ISE_146/ethernet/top.vhd" line 384: Instantiating black box module <ila>.
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 266: Unconnected output port 'mii_tx_er_o' of component 'ethernet'.
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 266: Unconnected output port 'gmii_gtx_clk_o' of component 'ethernet'.
+WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 266: Unconnected output port 'rgmii_tx_ctl_o' of component 'ethernet'.
+WARNING:Xst:2211 - "/home/ise/ISE_146/ethernet/top.vhd" line 346: Instantiating black box module <con>.
+WARNING:Xst:2211 - "/home/ise/ISE_146/ethernet/top.vhd" line 351: Instantiating black box module <ila>.
 Entity <top> analyzed. Unit <top> generated.
 
 Analyzing generic Entity <ethernet> in library <ethernet_mac> (Architecture <rtl>).
@@ -1294,13 +1294,13 @@ Delay:               5.021ns (Levels of Logic = 2)
 =========================================================================
 
 
-Total REAL time to Xst completion: 16.00 secs
-Total CPU time to Xst completion: 4.06 secs
+Total REAL time to Xst completion: 37.00 secs
+Total CPU time to Xst completion: 8.50 secs
  
 --> 
 
 
-Total memory usage is 672108 kilobytes
+Total memory usage is 672120 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   79 (   0 filtered)

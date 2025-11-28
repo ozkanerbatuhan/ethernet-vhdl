@@ -5,19 +5,19 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/top.vhd</arg>&quot; line <arg fmt="%d" index="2">281</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">mii_tx_er_o</arg>&apos; of component &apos;<arg fmt="%s" index="4">ethernet</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/top.vhd</arg>&quot; line <arg fmt="%d" index="2">266</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">mii_tx_er_o</arg>&apos; of component &apos;<arg fmt="%s" index="4">ethernet</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/top.vhd</arg>&quot; line <arg fmt="%d" index="2">281</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">gmii_gtx_clk_o</arg>&apos; of component &apos;<arg fmt="%s" index="4">ethernet</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/top.vhd</arg>&quot; line <arg fmt="%d" index="2">266</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">gmii_gtx_clk_o</arg>&apos; of component &apos;<arg fmt="%s" index="4">ethernet</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/top.vhd</arg>&quot; line <arg fmt="%d" index="2">281</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">rgmii_tx_ctl_o</arg>&apos; of component &apos;<arg fmt="%s" index="4">ethernet</arg>&apos;.
+<msg type="warning" file="Xst" num="753" delta="new" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/top.vhd</arg>&quot; line <arg fmt="%d" index="2">266</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">rgmii_tx_ctl_o</arg>&apos; of component &apos;<arg fmt="%s" index="4">ethernet</arg>&apos;.
 </msg>
 
-<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/top.vhd</arg>&quot; line <arg fmt="%d" index="2">373</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">con</arg>&gt;.
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/top.vhd</arg>&quot; line <arg fmt="%d" index="2">346</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">con</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2211" delta="old" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/top.vhd</arg>&quot; line <arg fmt="%d" index="2">384</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">ila</arg>&gt;.
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/top.vhd</arg>&quot; line <arg fmt="%d" index="2">351</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">ila</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="753" delta="old" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/ethernet_mac/ethernet.vhd</arg>&quot; line <arg fmt="%d" index="2">165</arg>: Unconnected output port &apos;<arg fmt="%s" index="3">rgmii_tx_ctl_o</arg>&apos; of component &apos;<arg fmt="%s" index="4">mii_gmii</arg>&apos;.
