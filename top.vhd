@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Top Level Design for Ethernet MAC IP (GitHub ethernet_mac project)
--- Spartan-3E with MII PHY Interface
+-- Spartan-3E with MII PHY Interface G_MAC_ADDRESS  : std_logic_vector(47 downto 0) := x"000A35123456"
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -13,14 +13,13 @@ use ethernet_mac.miim_types.all;
 ----------------------------------------------------------------------------------
 -- ENTITY: Top Level
 ----------------------------------------------------------------------------------
-entity top is
+entity ethernet_top is
     Port ( 
         -- Main Clock and Reset
         i_clk_50mhz   : in  STD_LOGIC;
         i_reset_n     : in  STD_LOGIC;
 
-        -- Switch Inputs (4-bit value)
-        SW            : in  STD_LOGIC_VECTOR(3 downto 0);
+        
 
         -- MII Interface (PHY pins)
         MII_RX_CLK    : in  STD_LOGIC;
@@ -31,70 +30,19 @@ entity top is
         MII_TX_CLK    : in  STD_LOGIC;
         MII_TXD       : out STD_LOGIC_VECTOR (3 downto 0);
         MII_TX_EN     : out STD_LOGIC;
-        -- MII_TX_ER not used (GitHub ethernet_mac doesn't use it in MII mode)
-        
+
         -- MDIO Management Interface
         MDC           : out STD_LOGIC;
         MDIO          : inout STD_LOGIC;
-
         -- PHY Reset Pin
-        o_phy_reset_n : out STD_LOGIC;
-        
-        -- LED Outputs
-        -- LED<7>   : RX Activity (frame received)
-        -- LED<6:4> : Debug (reserved)
-        -- LED<3:0> : Switch feedback
-        LED           : out STD_LOGIC_VECTOR(7 downto 0)
+        o_phy_reset_n : out std_logic
     );
-end top;
+end ethernet_top;
 
 ----------------------------------------------------------------------------------
 -- ARCHITECTURE
 ----------------------------------------------------------------------------------
-architecture Behavioral of top is
-
-    -- Component Declaration: LED Driver
-    component led_driver is
-        Port (
-            i_rx_clock    : in  STD_LOGIC;
-            i_rx_reset    : in  STD_LOGIC;
-            i_rx_frame    : in  STD_LOGIC;
-            i_switch      : in  STD_LOGIC_VECTOR(3 downto 0);
-            o_led         : out STD_LOGIC_VECTOR(7 downto 0)
-        );
-    end component;
-    
-    -- Component Declaration: Switch Driver
-    component switch_driver is
-        Generic (
-            G_MAC_ADDRESS  : std_logic_vector(47 downto 0) := x"000A35123456"
-        );
-        Port (
-            i_tx_clock     : in  STD_LOGIC;
-            i_tx_reset     : in  STD_LOGIC;
-            i_switch       : in  STD_LOGIC_VECTOR(3 downto 0);
-            o_tx_enable    : out STD_LOGIC;
-            o_tx_data      : out STD_LOGIC_VECTOR(7 downto 0);
-            i_tx_byte_sent : in  STD_LOGIC;
-            i_tx_busy      : in  STD_LOGIC
-        );
-    end component;
-
-    -- Component Declaration: ChipScope ICON (Control Interface)
-    component con is
-        Port (
-            CONTROL0 : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0)
-        );
-    end component;
-    
-    -- Component Declaration: ChipScope ILA (Logic Analyzer)
-    component ila is
-        Port (
-            CONTROL : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0);
-            CLK     : IN STD_LOGIC;
-            TRIG0   : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
-        );
-    end component;
+architecture Behavioral of ethernet_top is
 
     -- Component Declaration for GitHub ethernet_mac
     component ethernet is
@@ -191,9 +139,6 @@ architecture Behavioral of top is
     signal s_tx_byte_sent_slv : std_logic;
     signal s_tx_busy_slv    : std_logic;
     
-    -- ChipScope Signals
-    signal s_chipscope_control : std_logic_vector(35 downto 0);
-    signal s_chipscope_trig    : std_logic_vector(31 downto 0);
     
     -- Type conversion functions
     function to_std_logic(u : std_ulogic) return std_logic is
@@ -246,20 +191,7 @@ begin
     s_tx_data <= to_std_ulogic_vector(s_tx_data_slv);
     s_tx_byte_sent_slv <= to_std_logic(s_tx_byte_sent);
     s_tx_busy_slv <= to_std_logic(s_tx_busy);
-    
-    s_chipscope_trig(31 downto 24) <= to_std_logic_vector(s_rx_data);
-    s_chipscope_trig(23 downto 16) <= s_tx_data_slv;
-    s_chipscope_trig(15) <= to_std_logic(s_rx_frame);
-    s_chipscope_trig(14) <= s_tx_enable_slv;
-    s_chipscope_trig(13) <= to_std_logic(s_rx_byte_received);
-    s_chipscope_trig(12) <= s_tx_byte_sent_slv;
-    s_chipscope_trig(11) <= to_std_logic(s_rx_error);
-    s_chipscope_trig(10) <= s_tx_busy_slv;
-    s_chipscope_trig(9)  <= to_std_logic(s_link_up);
-    s_chipscope_trig(8)  <= to_std_logic(s_rx_reset);
-    s_chipscope_trig(7 downto 4) <= SW;
 
-    
     ----------------------------------------------------------------------------------
     -- Ethernet MAC Instantiation
     ----------------------------------------------------------------------------------
@@ -320,39 +252,27 @@ begin
             rx_error_o         => s_rx_error
         );
 
-    switch_driver_inst : component switch_driver
-        generic map (
-            G_MAC_ADDRESS => x"000A35123456"  -- Same as C_MAC_ADDRESS
-        )
-        port map (
-            i_tx_clock     => to_std_logic(s_tx_clock),
-            i_tx_reset     => to_std_logic(s_tx_reset),
-            i_switch       => SW,
-            o_tx_enable    => s_tx_enable_slv,
-            o_tx_data      => s_tx_data_slv,
-            i_tx_byte_sent => s_tx_byte_sent_slv,
-            i_tx_busy      => s_tx_busy_slv
-        );
+    --switch_driver_inst : component switch_driver
+      --  generic map (
+      --      G_MAC_ADDRESS => x"000A35123456"  -- Same as C_MAC_ADDRESS
+      --  )
+      --  port map (
+      --      i_tx_clock     => to_std_logic(s_tx_clock),
+      --      i_tx_reset     => to_std_logic(s_tx_reset),
+      --      i_switch       => SW,
+      --      o_tx_enable    => s_tx_enable_slv,
+      --      o_tx_data      => s_tx_data_slv,
+      --      i_tx_byte_sent => s_tx_byte_sent_slv,
+      --      i_tx_busy      => s_tx_busy_slv
+      --  );
 
-    led_driver_inst : component led_driver
-        port map (
-            i_rx_clock => to_std_logic(s_rx_clock),
-            i_rx_reset => to_std_logic(s_rx_reset),
-            i_rx_frame => to_std_logic(s_rx_frame),
-            i_switch   => SW,
-            o_led      => LED
-        );
-
-    chipscope_icon_inst : component con
-        port map (
-            CONTROL0 => s_chipscope_control
-        );
-
-    chipscope_ila_inst : component ila
-        port map (
-            CONTROL => s_chipscope_control,
-            CLK     => to_std_logic(s_rx_clock),
-            TRIG0   => s_chipscope_trig
-        );
+    --led_driver_inst : component led_driver
+    --    port map (
+    --        i_rx_clock => to_std_logic(s_rx_clock),
+    --        i_rx_reset => to_std_logic(s_rx_reset),
+    --        i_rx_frame => to_std_logic(s_rx_frame),
+    --        i_switch   => SW,
+    --        o_led      => LED
+    --    );
 
 end Behavioral;

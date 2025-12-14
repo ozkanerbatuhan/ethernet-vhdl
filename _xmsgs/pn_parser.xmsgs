@@ -8,64 +8,28 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/crc.vhd&quot; into library ethernet_mac</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/mlp/pkg_layer1.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/crc32.vhd&quot; into library ethernet_mac</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/mlp/pkg_layer1.vhd</arg>&quot; Line <arg fmt="%d" index="2">9</arg>. <arg fmt="%s" index="3">Syntax error near &quot;array&quot;.</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/ethernet.vhd&quot; into library ethernet_mac</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/mlp/pkg_layer2.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/ethernet_types.vhd&quot; into library ethernet_mac</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/mlp/pkg_layer2.vhd</arg>&quot; Line <arg fmt="%d" index="2">9</arg>. <arg fmt="%s" index="3">Syntax error near &quot;array&quot;.</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/framing.vhd&quot; into library ethernet_mac</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/mlp/pkg_layer3.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/framing_common.vhd&quot; into library ethernet_mac</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/mlp/pkg_layer3.vhd</arg>&quot; Line <arg fmt="%d" index="2">9</arg>. <arg fmt="%s" index="3">Syntax error near &quot;array&quot;.</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/mii_gmii.vhd&quot; into library ethernet_mac</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/mlp/pkg_layer4.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/mii_gmii_io.vhd&quot; into library ethernet_mac</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/miim.vhd&quot; into library ethernet_mac</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/miim_control.vhd&quot; into library ethernet_mac</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/miim_registers.vhd&quot; into library ethernet_mac</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/miim_types.vhd&quot; into library ethernet_mac</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/reset_generator.vhd&quot; into library ethernet_mac</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/single_signal_synchronizer.vhd&quot; into library ethernet_mac</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/ethernet_mac/utility.vhd&quot; into library ethernet_mac</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/led_driver.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/mii_gmii_io_simple.vhd&quot; into library ethernet_mac</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/single_signal_synchronizer_simple.vhd&quot; into library ethernet_mac</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/switch_driver.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/ISE_146/ethernet/top.vhd&quot; into library work</arg>
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/ise/ISE_146/ethernet/mlp/pkg_layer4.vhd</arg>&quot; Line <arg fmt="%d" index="2">9</arg>. <arg fmt="%s" index="3">Syntax error near &quot;array&quot;.</arg>
 </msg>
 
 </messages>
