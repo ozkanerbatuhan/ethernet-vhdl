@@ -172,7 +172,9 @@ begin
     -- LED Output Mapping
     -- Lower 3 LEDs show MLP classification result
     -- Upper LEDs show debug info
-    LED(2 downto 0) <= mlp_led;
+    LED(0) <= mlp_led(0);
+    LED(1) <= mlp_led(1);
+    LED(2) <= mlp_led(2);
     LED(3) <= mlp_busy;
     LED(4) <= mlp_done;
     LED(5) <= frame_count(0);  -- Toggle on each received frame (debug)
