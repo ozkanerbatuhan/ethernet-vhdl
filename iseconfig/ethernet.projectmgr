@@ -9,17 +9,18 @@
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/Unassigned User Library Modules/ethernet_with_fifos - rtl</ClosedNode>
          <ClosedNode>/main - Behavioral |home|ise|ISE_146|ethernet|main.vhd/ethernet_top_inst - ethernet_top - Behavioral</ClosedNode>
+         <ClosedNode>/main - Behavioral |home|ise|ISE_146|ethernet|main.vhd/sigmoid_functions</ClosedNode>
          <ClosedNode>/mii_gmii_io - simple |home|ise|ISE_146|ethernet|ethernet_mac|generic|mii_gmii_io_simple.vhd</ClosedNode>
          <ClosedNode>/top - Behavioral |home|ise|ISE_146|ethernet|top.vhd/ethernet_inst - ethernet - rtl</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>mlp - Behavioral (/home/ise/ISE_146/ethernet/mlp.vhd)</SelectedItem>
+         <SelectedItem>weight_rom - Behavioral (/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001bc000000020000000000000000000000000200000064ffffffff000000810000000300000002000001bc0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000204000000020000000000000000000000000200000064ffffffff000000810000000300000002000002040000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>mlp - Behavioral (/home/ise/ISE_146/ethernet/mlp.vhd)</CurrentItem>
+      <CurrentItem>weight_rom - Behavioral (/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>
@@ -88,7 +89,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000034a000000010000000100000000000000000000000064ffffffff0000008100000000000000010000034a0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000236000000010000000100000000000000000000000064ffffffff000000810000000000000001000002360000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
    </ItemView>
@@ -98,13 +99,13 @@
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000236000000010000000100000000000000000000000064ffffffff000000810000000000000001000002360000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000014c0000011d01000000060100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
@@ -120,5 +121,18 @@
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000236000000010000000100000000000000000000000064ffffffff000000810000000000000001000002360000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_PACKAGE_BODY" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000236000000010000000100000000000000000000000064ffffffff000000810000000000000001000002360000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
    </ItemView>
 </Project>

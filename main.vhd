@@ -19,15 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+use IEEE.NUMERIC_STD.all;
 
 entity main is
     port (
@@ -60,6 +52,8 @@ entity main is
 end main;
 
 architecture Behavioral of main is
+
+    -- Ethernet Top Component
     component ethernet_top is
         port (
             i_clk_50mhz   : in  STD_LOGIC;
@@ -77,11 +71,68 @@ architecture Behavioral of main is
             MDC           : out STD_LOGIC;
             MDIO          : inout STD_LOGIC;
             -- PHY Reset Pin
-            o_phy_reset_n : out std_logic
+            o_phy_reset_n : out std_logic;
+            -- RX Data Interface (for MLP)
+            o_rx_clock    : out std_logic;
+            o_rx_frame    : out std_logic;
+            o_rx_data     : out std_logic_vector(7 downto 0);
+            o_rx_valid    : out std_logic;
+            o_rx_error    : out std_logic
         );
     end component;
 
+    -- MLP Neural Network Component
+    component mlp is
+        port (
+            i_clk           : in  std_logic;
+            i_reset         : in  std_logic;
+            i_start         : in  std_logic;
+            o_done          : out std_logic;
+            o_busy          : out std_logic;
+            i_input_wr_en   : in  std_logic;
+            i_input_addr    : in  unsigned(5 downto 0);
+            i_input_data    : in  signed(15 downto 0);
+            o_class_result  : out unsigned(1 downto 0);
+            o_led           : out std_logic_vector(2 downto 0)
+        );
+    end component;
+
+    -- Internal signals
+    signal reset : std_logic;
+    
+    -- MLP signals
+    signal mlp_start        : std_logic := '0';
+    signal mlp_done         : std_logic;
+    signal mlp_busy         : std_logic;
+    signal mlp_input_wr_en  : std_logic := '0';
+    signal mlp_input_addr   : unsigned(5 downto 0) := (others => '0');
+    signal mlp_input_data   : signed(15 downto 0) := (others => '0');
+    signal mlp_class_result : unsigned(1 downto 0);
+    signal mlp_led          : std_logic_vector(2 downto 0);
+    
+    -- Ethernet RX signals
+    signal eth_rx_clock     : std_logic;
+    signal eth_rx_frame     : std_logic;
+    signal eth_rx_data      : std_logic_vector(7 downto 0);
+    signal eth_rx_valid     : std_logic;
+    signal eth_rx_error     : std_logic;
+    
+    -- Data pipeline state machine
+    type pipeline_state_t is (IDLE, SKIP_HEADER, COLLECT_DATA, START_MLP, WAIT_MLP);
+    signal pipeline_state   : pipeline_state_t := IDLE;
+    signal byte_counter     : unsigned(7 downto 0) := (others => '0');
+    signal data_index       : unsigned(5 downto 0) := (others => '0');
+    signal prev_rx_frame    : std_logic := '0';
+    
+    -- Debug signals
+    signal frame_count      : unsigned(3 downto 0) := (others => '0');
+
 begin
+
+    -- Reset is active high internally
+    reset <= not i_reset_n;
+
+    -- Ethernet Top Instance
     ethernet_top_inst : component ethernet_top
     port map (
         i_clk_50mhz => i_clk_50mhz,
@@ -95,9 +146,121 @@ begin
         MII_TX_EN => MII_TX_EN,
         MDC => MDC,
         MDIO => MDIO,
-        o_phy_reset_n => o_phy_reset_n
+        o_phy_reset_n => o_phy_reset_n,
+        o_rx_clock => eth_rx_clock,
+        o_rx_frame => eth_rx_frame,
+        o_rx_data => eth_rx_data,
+        o_rx_valid => eth_rx_valid,
+        o_rx_error => eth_rx_error
     );
-    
-    
 
+    -- MLP Neural Network Instance
+    mlp_inst : component mlp
+    port map (
+        i_clk           => i_clk_50mhz,
+        i_reset         => reset,
+        i_start         => mlp_start,
+        o_done          => mlp_done,
+        o_busy          => mlp_busy,
+        i_input_wr_en   => mlp_input_wr_en,
+        i_input_addr    => mlp_input_addr,
+        i_input_data    => mlp_input_data,
+        o_class_result  => mlp_class_result,
+        o_led           => mlp_led
+    );
+
+    -- LED Output Mapping
+    -- Lower 3 LEDs show MLP classification result
+    -- Upper LEDs show debug info
+    LED(2 downto 0) <= mlp_led;
+    LED(3) <= mlp_busy;
+    LED(4) <= mlp_done;
+    LED(5) <= frame_count(0);  -- Toggle on each received frame (debug)
+    LED(6) <= eth_rx_frame;     -- High while receiving frame (debug)
+    LED(7) <= '1' when pipeline_state /= IDLE else '0';  -- Pipeline active (debug)
+
+    -- Data pipeline: Ethernet RX -> MLP input
+    -- Expects: 14-byte Ethernet header + payload
+    -- Collects 40 bytes of payload data (our 40 MLP inputs)
+    process(i_clk_50mhz)
+    begin
+        if rising_edge(i_clk_50mhz) then
+            if reset = '1' then
+                pipeline_state <= IDLE;
+                byte_counter <= (others => '0');
+                data_index <= (others => '0');
+                mlp_start <= '0';
+                mlp_input_wr_en <= '0';
+                prev_rx_frame <= '0';
+                frame_count <= (others => '0');
+            else
+                prev_rx_frame <= eth_rx_frame;
+                mlp_start <= '0';
+                mlp_input_wr_en <= '0';
+                
+                -- Increment frame counter on each new frame
+                if eth_rx_frame = '1' and prev_rx_frame = '0' then
+                    frame_count <= frame_count + 1;
+                end if;
+                
+                case pipeline_state is
+                    when IDLE =>
+                        if eth_rx_frame = '1' and prev_rx_frame = '0' then
+                            -- Frame started
+                            pipeline_state <= SKIP_HEADER;
+                            byte_counter <= (others => '0');
+                            data_index <= (others => '0');
+                        end if;
+                        
+                    when SKIP_HEADER =>
+                        -- Skip 14-byte Ethernet header
+                        if eth_rx_valid = '1' then
+                            byte_counter <= byte_counter + 1;
+                            if byte_counter = 13 then  -- After 14 bytes (0-13)
+                                pipeline_state <= COLLECT_DATA;
+                                byte_counter <= (others => '0');
+                            end if;
+                        end if;
+                        if eth_rx_frame = '0' then
+                            pipeline_state <= IDLE;
+                        end if;
+                        
+                    when COLLECT_DATA =>
+                        -- Collect 40 bytes of payload for MLP input
+                        if eth_rx_valid = '1' then
+                            if data_index < 40 then
+                                -- Write byte as Q8.8 (byte in upper 8 bits)
+                                mlp_input_data <= signed(eth_rx_data & "00000000");
+                                mlp_input_addr <= data_index;
+                                mlp_input_wr_en <= '1';
+                                data_index <= data_index + 1;
+                            end if;
+                            if data_index = 39 then
+                                pipeline_state <= START_MLP;
+                            end if;
+                        end if;
+                        if eth_rx_frame = '0' then
+                            if data_index >= 40 then
+                                pipeline_state <= START_MLP;
+                            else
+                                pipeline_state <= IDLE;  -- Frame ended early
+                            end if;
+                        end if;
+                        
+                    when START_MLP =>
+                        mlp_start <= '1';
+                        pipeline_state <= WAIT_MLP;
+                        
+                    when WAIT_MLP =>
+                        if mlp_done = '1' then
+                            pipeline_state <= IDLE;
+                        end if;
+                        
+                    when others =>
+                        pipeline_state <= IDLE;
+                end case;
+            end if;
+        end if;
+    end process;
+    
 end Behavioral;

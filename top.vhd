@@ -35,7 +35,14 @@ entity ethernet_top is
         MDC           : out STD_LOGIC;
         MDIO          : inout STD_LOGIC;
         -- PHY Reset Pin
-        o_phy_reset_n : out std_logic
+        o_phy_reset_n : out std_logic;
+        
+        -- RX Data Interface (for MLP)
+        o_rx_clock    : out std_logic;
+        o_rx_frame    : out std_logic;              -- High during frame reception
+        o_rx_data     : out std_logic_vector(7 downto 0);  -- Received byte
+        o_rx_valid    : out std_logic;              -- Byte received pulse
+        o_rx_error    : out std_logic               -- Error indicator
     );
 end ethernet_top;
 
@@ -274,5 +281,12 @@ begin
     --        i_switch   => SW,
     --        o_led      => LED
     --    );
+
+    -- RX Data Interface outputs (for MLP connection)
+    o_rx_clock <= to_std_logic(s_rx_clock);
+    o_rx_frame <= to_std_logic(s_rx_frame);
+    o_rx_data  <= to_std_logic_vector(s_rx_data);
+    o_rx_valid <= to_std_logic(s_rx_byte_received);
+    o_rx_error <= to_std_logic(s_rx_error);
 
 end Behavioral;

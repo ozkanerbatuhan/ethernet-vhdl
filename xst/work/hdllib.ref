@@ -1,0 +1,14 @@
+EN weight_rom NULL /home/ise/ISE_146/ethernet/mlp/weight_rom.vhd sub00/vhpl02 1765684819
+AR ethernet_top behavioral /home/ise/ISE_146/ethernet/top.vhd sub00/vhpl09 1765684830
+AR main behavioral /home/ise/ISE_146/ethernet/main.vhd sub00/vhpl13 1765684834
+EN ethernet_top NULL /home/ise/ISE_146/ethernet/top.vhd sub00/vhpl08 1765684829
+EN controller_fsm NULL /home/ise/ISE_146/ethernet/mlp/Controller_FSM.vhd sub00/vhpl00 1765684817
+AR mlp behavioral /home/ise/ISE_146/ethernet/mlp/mlp.vhd sub00/vhpl11 1765684832
+EN mac_unit NULL /home/ise/ISE_146/ethernet/mlp/MAC_Unit.vhd sub00/vhpl04 1765684821
+EN main NULL /home/ise/ISE_146/ethernet/main.vhd sub00/vhpl12 1765684833
+EN mlp NULL /home/ise/ISE_146/ethernet/mlp/mlp.vhd sub00/vhpl10 1765684831
+EN pingpong_ram NULL /home/ise/ISE_146/ethernet/mlp/PingPong_RAM.vhd sub00/vhpl06 1765684823
+AR pingpong_ram behavioral /home/ise/ISE_146/ethernet/mlp/PingPong_RAM.vhd sub00/vhpl07 1765684824
+AR mac_unit behavioral /home/ise/ISE_146/ethernet/mlp/MAC_Unit.vhd sub00/vhpl05 1765684822
+AR weight_rom behavioral /home/ise/ISE_146/ethernet/mlp/weight_rom.vhd sub00/vhpl03 1765684820
+AR controller_fsm behavioral /home/ise/ISE_146/ethernet/mlp/Controller_FSM.vhd sub00/vhpl01 1765684818
