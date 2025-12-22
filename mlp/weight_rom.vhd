@@ -330,7 +330,6 @@ begin
                     weight_reg <= weights_l3(to_integer(i_weight_neuron), to_integer(i_weight_input));
                     bias_reg <= biases_l3(to_integer(i_bias_neuron));
                 when 3 =>
-                    -- Layer 4 has only 3 outputs, use resize to limit index (0, 1, or 2)
                     weight_reg <= weights_l4(to_integer(resize(i_weight_neuron(1 downto 0), 2)), to_integer(i_weight_input));
                     bias_reg <= biases_l4(to_integer(resize(i_bias_neuron(1 downto 0), 2)));
                 when others =>

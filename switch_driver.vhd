@@ -1,8 +1,3 @@
-----------------------------------------------------------------------------------
--- Switch Driver Component
--- TX Frame Generator: Sends Ethernet frames with switch value
--- Frame Structure: Dest MAC (6) + Src MAC (6) + EtherType (2) + Payload (1 byte)
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -15,14 +10,11 @@ entity switch_driver is
         G_MAC_ADDRESS  : std_logic_vector(47 downto 0) := x"000A35123456"
     );
     Port (
-        -- Clock and Reset
         i_tx_clock     : in  STD_LOGIC;
         i_tx_reset     : in  STD_LOGIC;
         
-        -- Switch Input (value to send)
         i_switch       : in  STD_LOGIC_VECTOR(3 downto 0);
         
-        -- TX Interface (to Ethernet MAC)
         o_tx_enable    : out STD_LOGIC;
         o_tx_data      : out STD_LOGIC_VECTOR(7 downto 0);
         i_tx_byte_sent : in  STD_LOGIC;
@@ -45,10 +37,6 @@ architecture Behavioral of switch_driver is
     
 begin
     
-    ----------------------------------------------------------------------------------
-    -- TX State Machine Process
-    -- Sends Ethernet frame with switch value every 500ms
-    ----------------------------------------------------------------------------------
     process(i_tx_clock)
         variable v_payload : std_logic_vector(7 downto 0);
     begin
@@ -60,7 +48,6 @@ begin
                 s_tx_counter <= 0;
                 s_tx_byte_index <= 0;
             else
-                -- Prepare payload (switch value padded to 8 bits)
                 v_payload := "0000" & i_switch;
                 
                 case s_tx_state is
@@ -70,7 +57,6 @@ begin
                         s_tx_counter <= 0;
                     
                     when WAIT_TIMER =>
-                        -- Wait 500ms (25M cycles @ 50MHz) before sending next frame
                         if s_tx_counter < 25000000 then
                             s_tx_counter <= s_tx_counter + 1;
                         else
@@ -80,7 +66,6 @@ begin
                         end if;
                     
                     when SEND_DEST_MAC =>
-                        -- Send 6 bytes of Destination MAC (Broadcast: FF:FF:FF:FF:FF:FF)
                         o_tx_enable <= '1';
                         o_tx_data <= C_BROADCAST_MAC((5 - s_tx_byte_index) * 8 + 7 downto 
                                                      (5 - s_tx_byte_index) * 8);
@@ -95,7 +80,6 @@ begin
                         end if;
                     
                     when SEND_SRC_MAC =>
-                        -- Send 6 bytes of Source MAC (our MAC address)
                         o_tx_enable <= '1';
                         o_tx_data <= G_MAC_ADDRESS((5 - s_tx_byte_index) * 8 + 7 downto 
                                                    (5 - s_tx_byte_index) * 8);
@@ -110,12 +94,11 @@ begin
                         end if;
                     
                     when SEND_ETHERTYPE =>
-                        -- Send 2 bytes of EtherType (0x88B5)
                         o_tx_enable <= '1';
                         if s_tx_byte_index = 0 then
-                            o_tx_data <= C_ETHERTYPE(15 downto 8);  -- MSB first
+                            o_tx_data <= C_ETHERTYPE(15 downto 8);  
                         else
-                            o_tx_data <= C_ETHERTYPE(7 downto 0);   -- LSB
+                            o_tx_data <= C_ETHERTYPE(7 downto 0);   
                         end if;
                         
                         if i_tx_byte_sent = '1' then
@@ -128,7 +111,6 @@ begin
                         end if;
                     
                     when SEND_PAYLOAD =>
-                        -- Send 1 byte of payload (switch value)
                         o_tx_enable <= '1';
                         o_tx_data <= v_payload;
                         
@@ -137,7 +119,6 @@ begin
                         end if;
                     
                     when DONE =>
-                        -- Frame sent, disable TX and go back to IDLE
                         o_tx_enable <= '0';
                         s_tx_state <= IDLE;
                     

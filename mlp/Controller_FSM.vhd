@@ -158,9 +158,7 @@ begin
                         input_counter <= (others => '0');
                         state <= LOAD_BIAS;
                     
-                    -- Argmax: Find the class with maximum output value
                     when FIND_MAX_INIT =>
-                        -- Initialize: set input_counter to read first output (class 0)
                         input_counter <= (others => '0');
                         compare_counter <= (others => '0');
                         max_value <= (others => '0');
@@ -168,30 +166,22 @@ begin
                         state <= FIND_MAX_READ;
                     
                     when FIND_MAX_READ =>
-                        -- Wait one cycle for RAM read (synchronous read)
                         state <= FIND_MAX_COMPARE;
                     
                     when FIND_MAX_COMPARE =>
-                        -- Compare current value with max_value
-                        -- Note: current_value comes from RAM output (connected externally)
                         if compare_counter = 0 then
-                            -- First value, set as max
                             max_value <= current_value;
                             max_index <= "00";
                         else
-                            -- Compare with current max
                             if current_value > max_value then
                                 max_value <= current_value;
                                 max_index <= compare_counter;
                             end if;
                         end if;
                         
-                        -- Move to next class or finish
                         if compare_counter = 2 then
-                            -- Compared all 3 classes, done
                             state <= DONE_STATE;
                         else
-                            -- Read next class output
                             compare_counter <= compare_counter + 1;
                             input_counter <= resize(compare_counter + 1, 6);
                             state <= FIND_MAX_READ;

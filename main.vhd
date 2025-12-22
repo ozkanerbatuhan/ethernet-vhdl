@@ -34,7 +34,6 @@ entity main is
         -- PHY Reset Pin
         o_phy_reset_n : out std_logic;
 
-        -- ethernet top signals
         -- MII Interface (PHY pins)
         MII_RX_CLK : in std_logic;
         MII_RXD : in std_logic_vector (3 downto 0);
@@ -63,11 +62,9 @@ architecture Behavioral of main is
             MII_RXD       : in  STD_LOGIC_VECTOR (3 downto 0);
             MII_RX_DV     : in  STD_LOGIC;
             MII_RX_ER     : in  STD_LOGIC;
-            -- MII_CRS and MII_COL not used (full-duplex mode)
             MII_TX_CLK    : in  STD_LOGIC;
             MII_TXD       : out STD_LOGIC_VECTOR (3 downto 0);
             MII_TX_EN     : out STD_LOGIC;
-            -- MDIO Management Interface
             MDC           : out STD_LOGIC;
             MDIO          : inout STD_LOGIC;
             -- PHY Reset Pin
@@ -169,21 +166,16 @@ begin
         o_led           => mlp_led
     );
 
-    -- LED Output Mapping
-    -- Lower 3 LEDs show MLP classification result
-    -- Upper LEDs show debug info
+
     LED(0) <= mlp_led(0);
     LED(1) <= mlp_led(1);
     LED(2) <= mlp_led(2);
     LED(3) <= mlp_busy;
     LED(4) <= mlp_done;
-    LED(5) <= frame_count(0);  -- Toggle on each received frame (debug)
-    LED(6) <= eth_rx_frame;     -- High while receiving frame (debug)
-    LED(7) <= '1' when pipeline_state /= IDLE else '0';  -- Pipeline active (debug)
+    LED(5) <= frame_count(0);
+    LED(6) <= eth_rx_frame;
+    LED(7) <= '1' when pipeline_state /= IDLE else '0';
 
-    -- Data pipeline: Ethernet RX -> MLP input
-    -- Expects: 14-byte Ethernet header + payload
-    -- Collects 40 bytes of payload data (our 40 MLP inputs)
     process(i_clk_50mhz)
     begin
         if rising_edge(i_clk_50mhz) then
@@ -200,7 +192,6 @@ begin
                 mlp_start <= '0';
                 mlp_input_wr_en <= '0';
                 
-                -- Increment frame counter on each new frame
                 if eth_rx_frame = '1' and prev_rx_frame = '0' then
                     frame_count <= frame_count + 1;
                 end if;
@@ -208,17 +199,15 @@ begin
                 case pipeline_state is
                     when IDLE =>
                         if eth_rx_frame = '1' and prev_rx_frame = '0' then
-                            -- Frame started
                             pipeline_state <= SKIP_HEADER;
                             byte_counter <= (others => '0');
                             data_index <= (others => '0');
                         end if;
                         
                     when SKIP_HEADER =>
-                        -- Skip 14-byte Ethernet header
                         if eth_rx_valid = '1' then
                             byte_counter <= byte_counter + 1;
-                            if byte_counter = 13 then  -- After 14 bytes (0-13)
+                            if byte_counter = 13 then
                                 pipeline_state <= COLLECT_DATA;
                                 byte_counter <= (others => '0');
                             end if;
@@ -228,10 +217,8 @@ begin
                         end if;
                         
                     when COLLECT_DATA =>
-                        -- Collect 40 bytes of payload for MLP input
                         if eth_rx_valid = '1' then
                             if data_index < 40 then
-                                -- Write byte as Q8.8 (byte in upper 8 bits)
                                 mlp_input_data <= signed(eth_rx_data & "00000000");
                                 mlp_input_addr <= data_index;
                                 mlp_input_wr_en <= '1';
@@ -245,7 +232,7 @@ begin
                             if data_index >= 40 then
                                 pipeline_state <= START_MLP;
                             else
-                                pipeline_state <= IDLE;  -- Frame ended early
+                                pipeline_state <= IDLE;
                             end if;
                         end if;
                         
