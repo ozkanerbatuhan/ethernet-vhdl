@@ -72,6 +72,7 @@ architecture Behavioral of mlp is
             i_clk           : in  std_logic;
             i_reset         : in  std_logic;
             i_start         : in  std_logic;
+            i_ram_data      : in  signed(15 downto 0);
             o_done          : out std_logic;
             o_busy          : out std_logic;
             o_layer_idx     : out unsigned(2 downto 0);
@@ -172,6 +173,7 @@ begin
             i_clk           => i_clk,
             i_reset         => i_reset,
             i_start         => i_start,
+            i_ram_data      => pp_rd_data,
             o_done          => fsm_done,
             o_busy          => fsm_busy,
             o_layer_idx     => layer_idx,

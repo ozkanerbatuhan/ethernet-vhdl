@@ -11,6 +11,7 @@ entity Controller_FSM is
         i_clk           : in  std_logic;
         i_reset         : in  std_logic;
         i_start         : in  std_logic;
+        i_ram_data      : in  signed(15 downto 0);  -- RAM output for argmax comparison
         o_done          : out std_logic;
         o_busy          : out std_logic;
         o_layer_idx     : out unsigned(2 downto 0);
@@ -42,7 +43,7 @@ architecture Behavioral of Controller_FSM is
 
     type state_type is (
         IDLE, LOAD_BIAS, PROCESS_NEURON, APPLY_ACTIVATION,
-        WRITE_RAM, NEXT_NEURON, NEXT_LAYER, FIND_MAX, DONE_STATE
+        WRITE_RAM, NEXT_NEURON, NEXT_LAYER, FIND_MAX_INIT, FIND_MAX_READ, FIND_MAX_COMPARE, DONE_STATE
     );
     
     signal state            : state_type := IDLE;
@@ -55,7 +56,14 @@ architecture Behavioral of Controller_FSM is
     signal max_index        : unsigned(1 downto 0) := (others => '0');
     signal compare_counter  : unsigned(1 downto 0) := (others => '0');
     
+    -- Signals for argmax (finding maximum output)
+    signal max_value        : signed(15 downto 0) := (others => '0');
+    signal current_value    : signed(15 downto 0) := (others => '0');
+    
 begin
+
+    -- Connect RAM output to current_value for comparison
+    current_value <= i_ram_data;
 
     -- Layer dimensions
     process(layer_counter)
@@ -132,8 +140,10 @@ begin
                     when NEXT_NEURON =>
                         if neuron_counter = resize(current_out_dim - 1, 6) then
                             if layer_counter = 3 then
-                                state <= FIND_MAX;
+                                state <= FIND_MAX_INIT;
                                 compare_counter <= (others => '0');
+                                max_index <= (others => '0');
+                                max_value <= (others => '0');
                             else
                                 state <= NEXT_LAYER;
                             end if;
@@ -148,11 +158,43 @@ begin
                         input_counter <= (others => '0');
                         state <= LOAD_BIAS;
                     
-                    when FIND_MAX =>
-                        if compare_counter = 3 then
+                    -- Argmax: Find the class with maximum output value
+                    when FIND_MAX_INIT =>
+                        -- Initialize: set input_counter to read first output (class 0)
+                        input_counter <= (others => '0');
+                        compare_counter <= (others => '0');
+                        max_value <= (others => '0');
+                        max_index <= (others => '0');
+                        state <= FIND_MAX_READ;
+                    
+                    when FIND_MAX_READ =>
+                        -- Wait one cycle for RAM read (synchronous read)
+                        state <= FIND_MAX_COMPARE;
+                    
+                    when FIND_MAX_COMPARE =>
+                        -- Compare current value with max_value
+                        -- Note: current_value comes from RAM output (connected externally)
+                        if compare_counter = 0 then
+                            -- First value, set as max
+                            max_value <= current_value;
+                            max_index <= "00";
+                        else
+                            -- Compare with current max
+                            if current_value > max_value then
+                                max_value <= current_value;
+                                max_index <= compare_counter;
+                            end if;
+                        end if;
+                        
+                        -- Move to next class or finish
+                        if compare_counter = 2 then
+                            -- Compared all 3 classes, done
                             state <= DONE_STATE;
                         else
+                            -- Read next class output
                             compare_counter <= compare_counter + 1;
+                            input_counter <= resize(compare_counter + 1, 6);
+                            state <= FIND_MAX_READ;
                         end if;
                     
                     when DONE_STATE =>
