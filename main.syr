@@ -4,14 +4,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.00 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.00 secs
  
 --> 
@@ -108,81 +108,63 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/utility.vhd" in Library ethernet_mac.
-Package <utility> compiled.
-Package body <utility> compiled.
+Architecture utility of Entity utility is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/crc.vhd" in Library ethernet_mac.
-Package <crc> compiled.
-Package body <crc> compiled.
+Architecture crc of Entity crc is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet_types.vhd" in Library ethernet_mac.
-Package <ethernet_types> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim_types.vhd" in Library ethernet_mac.
-Package <miim_types> compiled.
-Package body <miim_types> compiled.
+Architecture miim_types of Entity miim_types is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/crc32.vhd" in Library ethernet_mac.
-Package <crc32> compiled.
-Package body <crc32> compiled.
+Architecture crc32 of Entity crc32 is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim_registers.vhd" in Library ethernet_mac.
-Package <miim_registers> compiled.
-Package body <miim_registers> compiled.
+Architecture miim_registers of Entity miim_registers is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/framing_common.vhd" in Library ethernet_mac.
-Package <framing_common> compiled.
-Package body <framing_common> compiled.
+Architecture framing_common of Entity framing_common is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/reset_generator.vhd" in Library ethernet_mac.
-Entity <reset_generator> compiled.
-Entity <reset_generator> (Architecture <rtl>) compiled.
+Architecture rtl of Entity reset_generator is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/single_signal_synchronizer.vhd" in Library ethernet_mac.
-Entity <single_signal_synchronizer> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/mii_gmii.vhd" in Library ethernet_mac.
-Entity <mii_gmii> compiled.
-Entity <mii_gmii> (Architecture <rtl>) compiled.
+Architecture rtl of Entity mii_gmii is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/mii_gmii_io.vhd" in Library ethernet_mac.
-Entity <mii_gmii_io> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/framing.vhd" in Library ethernet_mac.
-Entity <framing> compiled.
-Entity <framing> (Architecture <rtl>) compiled.
+Architecture rtl of Entity framing is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim.vhd" in Library ethernet_mac.
-Entity <miim> compiled.
-Entity <miim> (Architecture <rtl>) compiled.
+Architecture rtl of Entity miim is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim_control.vhd" in Library ethernet_mac.
-Entity <miim_control> compiled.
-Entity <miim_control> (Architecture <rtl>) compiled.
+Architecture rtl of Entity miim_control is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mlp/Controller_FSM.vhd" in Library work.
-Entity <Controller_FSM> compiled.
-Entity <Controller_FSM> (Architecture <Behavioral>) compiled.
+Entity <controller_fsm> compiled.
+Entity <controller_fsm> (Architecture <behavioral>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" in Library work.
 Entity <weight_rom> compiled.
-Entity <weight_rom> (Architecture <Behavioral>) compiled.
+Entity <weight_rom> (Architecture <behavioral>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mlp/MAC_Unit.vhd" in Library work.
-Entity <MAC_Unit> compiled.
-Entity <MAC_Unit> (Architecture <Behavioral>) compiled.
+Architecture behavioral of Entity mac_unit is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mlp/PingPong_RAM.vhd" in Library work.
-Entity <PingPong_RAM> compiled.
-Entity <PingPong_RAM> (Architecture <Behavioral>) compiled.
+Entity <pingpong_ram> compiled.
+Entity <pingpong_ram> (Architecture <behavioral>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/single_signal_synchronizer_simple.vhd" in Library ethernet_mac.
-Entity <single_signal_synchronizer> (Architecture <simple>) compiled.
+Architecture simple of Entity single_signal_synchronizer is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mii_gmii_io_simple.vhd" in Library ethernet_mac.
-Entity <mii_gmii_io> (Architecture <simple>) compiled.
+Architecture simple of Entity mii_gmii_io is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet.vhd" in Library ethernet_mac.
-Entity <ethernet> compiled.
-Entity <ethernet> (Architecture <rtl>) compiled.
+Architecture rtl of Entity ethernet is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/top.vhd" in Library work.
-Entity <ethernet_top> compiled.
-Entity <ethernet_top> (Architecture <Behavioral>) compiled.
+Architecture behavioral of Entity ethernet_top is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mlp/mlp.vhd" in Library work.
-Entity <mlp> compiled.
-Entity <mlp> (Architecture <Behavioral>) compiled.
+Architecture behavioral of Entity mlp is up to date.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/main.vhd" in Library work.
 Entity <main> compiled.
-Entity <main> (Architecture <Behavioral>) compiled.
+Entity <main> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
-Analyzing hierarchy for entity <main> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <main> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <ethernet_top> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <ethernet_top> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <mlp> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <mlp> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <ethernet> in library <ethernet_mac> (architecture <rtl>) with generics.
 	MIIM_CLOCK_DIVIDER = 20
@@ -191,14 +173,14 @@ Analyzing hierarchy for entity <ethernet> in library <ethernet_mac> (architectur
 	MIIM_POLL_WAIT_TICKS = 10000000
 	MIIM_RESET_WAIT_TICKS = 2500000
 
-Analyzing hierarchy for entity <Controller_FSM> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <Controller_FSM> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <weight_rom> in library <work> (architecture <Behavioral>) with generics.
+Analyzing hierarchy for entity <weight_rom> in library <work> (architecture <behavioral>) with generics.
 	DATA_WIDTH = 16
 
-Analyzing hierarchy for entity <MAC_Unit> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <MAC_Unit> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <PingPong_RAM> in library <work> (architecture <Behavioral>) with generics.
+Analyzing hierarchy for entity <PingPong_RAM> in library <work> (architecture <behavioral>) with generics.
 	DEPTH = 64
 	WIDTH = 16
 
@@ -225,10 +207,10 @@ Analyzing hierarchy for entity <miim_control> in library <ethernet_mac> (archite
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
-Analyzing Entity <main> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <main> in library <work> (Architecture <behavioral>).
 Entity <main> analyzed. Unit <main> generated.
 
-Analyzing Entity <ethernet_top> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <ethernet_top> in library <work> (Architecture <behavioral>).
 WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 205: Unconnected output port 'mii_tx_er_o' of component 'ethernet'.
 WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 205: Unconnected output port 'gmii_gtx_clk_o' of component 'ethernet'.
 WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 205: Unconnected output port 'rgmii_tx_ctl_o' of component 'ethernet'.
@@ -272,33 +254,33 @@ Analyzing generic Entity <miim_control> in library <ethernet_mac> (Architecture 
 	RESET_WAIT_TICKS = 2500000
 Entity <miim_control> analyzed. Unit <miim_control> generated.
 
-Analyzing Entity <mlp> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <mlp> in library <work> (Architecture <behavioral>).
 WARNING:Xst:819 - "/home/ise/ISE_146/ethernet/mlp/mlp.vhd" line 259: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <o_class_result>
 Entity <mlp> analyzed. Unit <mlp> generated.
 
-Analyzing Entity <Controller_FSM> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <Controller_FSM> in library <work> (Architecture <behavioral>).
 Entity <Controller_FSM> analyzed. Unit <Controller_FSM> generated.
 
-Analyzing generic Entity <weight_rom> in library <work> (Architecture <Behavioral>).
+Analyzing generic Entity <weight_rom> in library <work> (Architecture <behavioral>).
 	DATA_WIDTH = 16
-WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 324: Index value(s) does not match array range, simulation mismatch.
-WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 327: Index value(s) does not match array range, simulation mismatch.
-WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 328: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 322: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 325: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 326: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <biases_l2> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 330: Index value(s) does not match array range, simulation mismatch.
-WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 330: Index value(s) does not match array range, simulation mismatch.
-WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 331: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 328: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 328: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 329: Index value(s) does not match array range, simulation mismatch.
 INFO:Xst:1433 - Contents of array <biases_l3> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
-WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 334: Index value(s) does not match array range, simulation mismatch.
-WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 334: Index value(s) does not match array range, simulation mismatch.
-WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 335: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 331: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 331: Index value(s) does not match array range, simulation mismatch.
+WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 332: Index value(s) does not match array range, simulation mismatch.
 Entity <weight_rom> analyzed. Unit <weight_rom> generated.
 
-Analyzing Entity <MAC_Unit> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <MAC_Unit> in library <work> (Architecture <behavioral>).
 Entity <MAC_Unit> analyzed. Unit <MAC_Unit> generated.
 
-Analyzing generic Entity <PingPong_RAM> in library <work> (Architecture <Behavioral>).
+Analyzing generic Entity <PingPong_RAM> in library <work> (Architecture <behavioral>).
 	DEPTH = 64
 	WIDTH = 16
 Entity <PingPong_RAM> analyzed. Unit <PingPong_RAM> generated.
@@ -551,19 +533,19 @@ WARNING:Xst:646 - Signal <current_in_dim<6>> is assigned but never used. This un
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 12-bit adder for signal <o_weight_addr>.
-    Found 6x6-bit multiplier for signal <$n0002> created at line 217.
+    Found 6x6-bit multiplier for signal <$n0002> created at line 207.
     Found 2-bit register for signal <compare_counter>.
     Found 6-bit register for signal <input_counter>.
-    Found 2-bit adder for signal <input_counter$add0001> created at line 196.
+    Found 2-bit adder for signal <input_counter$add0001> created at line 186.
     Found 6-bit adder for signal <input_counter$addsub0000> created at line 131.
     Found 3-bit register for signal <layer_counter>.
     Found 3-bit adder for signal <layer_counter$addsub0000> created at line 156.
     Found 2-bit register for signal <max_index>.
-    Found 16-bit comparator greater for signal <max_index$cmp_gt0000> created at line 183.
+    Found 16-bit comparator greater for signal <max_index$cmp_gt0000> created at line 176.
     Found 16-bit register for signal <max_value>.
     Found 6-bit register for signal <neuron_counter>.
     Found 6-bit adder for signal <neuron_counter$addsub0000> created at line 151.
-    Found 12-bit adder for signal <o_weight_addr$addsub0000> created at line 217.
+    Found 12-bit adder for signal <o_weight_addr$addsub0000> created at line 207.
     Found 6-bit comparator equal for signal <state$cmp_eq0000> created at line 128.
     Found 6-bit comparator equal for signal <state$cmp_eq0001> created at line 141.
     Found 6-bit subtractor for signal <state$sub0000> created at line 141.
@@ -698,13 +680,13 @@ WARNING:Xst:1781 - Signal <biases_l4> is used but never assigned. Tied to defaul
 WARNING:Xst:1781 - Signal <biases_l3> is used but never assigned. Tied to default value.
 WARNING:Xst:1781 - Signal <biases_l2> is used but never assigned. Tied to default value.
 WARNING:Xst:1781 - Signal <biases_l1> is used but never assigned. Tied to default value.
-    Found 64x16-bit ROM for signal <$varindex0000> created at line 325.
-    Found 32x16-bit ROM for signal <$varindex0001> created at line 328.
-    Found 16x16-bit ROM for signal <$varindex0002> created at line 331.
+    Found 64x16-bit ROM for signal <$varindex0000> created at line 323.
+    Found 32x16-bit ROM for signal <$varindex0001> created at line 326.
+    Found 16x16-bit ROM for signal <$varindex0002> created at line 329.
     Found 32x244-bit ROM for signal <$rom0000>.
     Found 16x122-bit ROM for signal <$rom0001>.
     Found 4x7-bit ROM for signal <n0011$rom0000>.
-    Found 16-bit 3-to-1 multiplexer for signal <$varindex0003> created at line 335.
+    Found 16-bit 3-to-1 multiplexer for signal <$varindex0003> created at line 332.
     Found 16-bit register for signal <bias_reg>.
     Found 16-bit register for signal <weight_reg>.
     Found 1-bit 3-to-1 multiplexer for signal <weight_reg_0$mux0001>.
@@ -808,16 +790,16 @@ WARNING:Xst:646 - Signal <eth_rx_clock> is assigned but never used. This unconne
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 8-bit register for signal <byte_counter>.
-    Found 8-bit adder for signal <byte_counter$addsub0000> created at line 220.
+    Found 8-bit adder for signal <byte_counter$addsub0000> created at line 209.
     Found 6-bit register for signal <data_index>.
-    Found 6-bit adder for signal <data_index$addsub0000> created at line 238.
-    Found 6-bit comparator less for signal <data_index$cmp_lt0000> created at line 233.
+    Found 6-bit adder for signal <data_index$addsub0000> created at line 225.
+    Found 6-bit comparator less for signal <data_index$cmp_lt0000> created at line 221.
     Found 4-bit up counter for signal <frame_count>.
     Found 6-bit register for signal <mlp_input_addr>.
     Found 16-bit register for signal <mlp_input_data>.
     Found 1-bit register for signal <mlp_input_wr_en>.
     Found 1-bit register for signal <mlp_start>.
-    Found 6-bit comparator greatequal for signal <pipeline_state$cmp_ge0000> created at line 245.
+    Found 6-bit comparator greatequal for signal <pipeline_state$cmp_ge0000> created at line 232.
     Found 1-bit register for signal <prev_rx_frame>.
     Summary:
 	inferred   1 Finite State Machine(s).
@@ -1659,13 +1641,13 @@ Offset:              4.745ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 435.00 secs
-Total CPU time to Xst completion: 134.26 secs
+Total REAL time to Xst completion: 542.00 secs
+Total CPU time to Xst completion: 122.08 secs
  
 --> 
 
 
-Total memory usage is 979652 kilobytes
+Total memory usage is 979744 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  285 (   0 filtered)
