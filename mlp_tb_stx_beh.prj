@@ -1,0 +1,6 @@
+vhdl isim_temp "mlp/weight_rom.vhd"
+vhdl isim_temp "mlp/PingPong_RAM.vhd"
+vhdl isim_temp "mlp/MAC_Unit.vhd"
+vhdl isim_temp "mlp/Controller_FSM.vhd"
+vhdl isim_temp "mlp/mlp.vhd"
+vhdl isim_temp "mlp/mlp_tb.vhd"

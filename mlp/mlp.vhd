@@ -255,17 +255,20 @@ begin
     o_busy <= fsm_busy;
     o_class_result <= class_result;
     
-    -- LED outputs
-    process(class_result, fsm_done)
+    -- LED outputs (latched - son sonucu tutar)
+    process(i_clk)
     begin
-        o_led <= (others => '0');
-        if fsm_done = '1' then
-            case to_integer(class_result) is
-                when 0 => o_led <= "001";
-                when 1 => o_led <= "010";
-                when 2 => o_led <= "100";
-                when others => o_led <= "000";
-            end case;
+        if rising_edge(i_clk) then
+            if i_reset = '1' then
+                o_led <= (others => '0');
+            elsif fsm_done = '1' then
+                case to_integer(class_result) is
+                    when 0 => o_led <= "001";  -- SELL
+                    when 1 => o_led <= "010";  -- HOLD
+                    when 2 => o_led <= "100";  -- BUY
+                    when others => o_led <= "000";
+                end case;
+            end if;
         end if;
     end process;
 

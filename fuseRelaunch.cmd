@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "/home/ise/ISE_146/ethernet/mlp_tb_isim_beh.exe" -prj "/home/ise/ISE_146/ethernet/mlp_tb_beh.prj" "work.mlp_tb" 

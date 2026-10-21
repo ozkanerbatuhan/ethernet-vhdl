@@ -1,0 +1,6 @@
+vhdl work "mlp/weight_rom.vhd"
+vhdl work "mlp/PingPong_RAM.vhd"
+vhdl work "mlp/MAC_Unit.vhd"
+vhdl work "mlp/Controller_FSM.vhd"
+vhdl work "mlp/mlp.vhd"
+vhdl work "mlp/mlp_tb.vhd"

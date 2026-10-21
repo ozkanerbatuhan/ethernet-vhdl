@@ -44,12 +44,12 @@ Setup/Hold to clock MII_RX_CLK
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-MII_RXD<0>  |   -0.167(R)|    1.993(R)|MII_RX_CLK_BUFGP  |   0.000|
-MII_RXD<1>  |    0.505(R)|    1.797(R)|MII_RX_CLK_BUFGP  |   0.000|
-MII_RXD<2>  |    0.634(R)|    1.721(R)|MII_RX_CLK_BUFGP  |   0.000|
-MII_RXD<3>  |    0.478(R)|    1.592(R)|MII_RX_CLK_BUFGP  |   0.000|
-MII_RX_DV   |   -0.111(R)|    2.229(R)|MII_RX_CLK_BUFGP  |   0.000|
-MII_RX_ER   |    0.225(R)|    1.612(R)|MII_RX_CLK_BUFGP  |   0.000|
+MII_RXD<0>  |   -0.615(R)|    2.288(R)|MII_RX_CLK_BUFGP  |   0.000|
+MII_RXD<1>  |    0.589(R)|    1.357(R)|MII_RX_CLK_BUFGP  |   0.000|
+MII_RXD<2>  |    0.713(R)|    1.925(R)|MII_RX_CLK_BUFGP  |   0.000|
+MII_RXD<3>  |    1.166(R)|    1.661(R)|MII_RX_CLK_BUFGP  |   0.000|
+MII_RX_DV   |    0.661(R)|    1.982(R)|MII_RX_CLK_BUFGP  |   0.000|
+MII_RX_ER   |    0.189(R)|    1.645(R)|MII_RX_CLK_BUFGP  |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock i_clk_50mhz
@@ -57,8 +57,8 @@ Setup/Hold to clock i_clk_50mhz
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-MDIO        |    0.835(R)|    1.190(R)|i_clk_50mhz_IBUF  |   0.000|
-i_reset_n   |    5.783(R)|    0.283(R)|i_clk_50mhz_IBUF  |   0.000|
+MDIO        |    1.314(R)|    0.258(R)|i_clk_50mhz_IBUF  |   0.000|
+i_reset_n   |    6.191(R)|    0.207(R)|i_clk_50mhz_IBUF  |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock MII_RX_CLK to Pad
@@ -66,7 +66,7 @@ Clock MII_RX_CLK to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-LED<6>      |   12.547(R)|MII_RX_CLK_BUFGP  |   0.000|
+LED<6>      |   13.989(R)|MII_RX_CLK_BUFGP  |   0.000|
 ------------+------------+------------------+--------+
 
 Clock MII_TX_CLK to Pad
@@ -74,11 +74,11 @@ Clock MII_TX_CLK to Pad
             | clk (edge) |                                        | Clock  |
 Destination |   to PAD   |Internal Clock(s)                       | Phase  |
 ------------+------------+----------------------------------------+--------+
-MII_TXD<0>  |   12.781(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
-MII_TXD<1>  |   13.066(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
-MII_TXD<2>  |   14.125(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
-MII_TXD<3>  |   13.965(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
-MII_TX_EN   |   12.891(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
+MII_TXD<0>  |   12.929(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
+MII_TXD<1>  |   13.244(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
+MII_TXD<2>  |   14.589(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
+MII_TXD<3>  |   14.287(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
+MII_TX_EN   |   13.458(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
 ------------+------------+----------------------------------------+--------+
 
 Clock i_clk_50mhz to Pad
@@ -86,21 +86,21 @@ Clock i_clk_50mhz to Pad
              | clk (edge) |                                        | Clock  |
 Destination  |   to PAD   |Internal Clock(s)                       | Phase  |
 -------------+------------+----------------------------------------+--------+
-LED<0>       |   12.070(R)|i_clk_50mhz_IBUF                        |   0.000|
-LED<1>       |   11.769(R)|i_clk_50mhz_IBUF                        |   0.000|
-LED<2>       |   10.709(R)|i_clk_50mhz_IBUF                        |   0.000|
-LED<3>       |   10.487(R)|i_clk_50mhz_IBUF                        |   0.000|
-LED<4>       |   10.457(R)|i_clk_50mhz_IBUF                        |   0.000|
-LED<5>       |    9.543(R)|i_clk_50mhz_IBUF                        |   0.000|
-LED<7>       |   13.856(R)|i_clk_50mhz_IBUF                        |   0.000|
-MDC          |   11.423(R)|i_clk_50mhz_IBUF                        |   0.000|
-MDIO         |   14.564(R)|i_clk_50mhz_IBUF                        |   0.000|
-MII_TXD<0>   |   14.047(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
-MII_TXD<1>   |   14.332(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
-MII_TXD<2>   |   15.391(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
-MII_TXD<3>   |   15.231(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
-MII_TX_EN    |   14.157(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
-o_phy_reset_n|    9.048(R)|i_clk_50mhz_IBUF                        |   0.000|
+LED<0>       |    8.639(R)|i_clk_50mhz_IBUF                        |   0.000|
+LED<1>       |    9.569(R)|i_clk_50mhz_IBUF                        |   0.000|
+LED<2>       |    9.030(R)|i_clk_50mhz_IBUF                        |   0.000|
+LED<3>       |   10.701(R)|i_clk_50mhz_IBUF                        |   0.000|
+LED<4>       |   10.233(R)|i_clk_50mhz_IBUF                        |   0.000|
+LED<5>       |    8.036(R)|i_clk_50mhz_IBUF                        |   0.000|
+LED<7>       |   12.363(R)|i_clk_50mhz_IBUF                        |   0.000|
+MDC          |   11.782(R)|i_clk_50mhz_IBUF                        |   0.000|
+MDIO         |   14.235(R)|i_clk_50mhz_IBUF                        |   0.000|
+MII_TXD<0>   |   14.232(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
+MII_TXD<1>   |   14.547(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
+MII_TXD<2>   |   15.892(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
+MII_TXD<3>   |   15.590(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
+MII_TX_EN    |   14.761(R)|ethernet_top_inst/ethernet_inst/tx_clock|   0.000|
+o_phy_reset_n|   10.410(R)|i_clk_50mhz_IBUF                        |   0.000|
 -------------+------------+----------------------------------------+--------+
 
 Clock to Setup on destination clock MII_RX_CLK
@@ -108,8 +108,8 @@ Clock to Setup on destination clock MII_RX_CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-MII_RX_CLK     |    6.448|         |         |         |
-i_clk_50mhz    |    5.003|         |         |         |
+MII_RX_CLK     |    6.464|         |         |         |
+i_clk_50mhz    |    4.701|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock MII_TX_CLK
@@ -117,8 +117,8 @@ Clock to Setup on destination clock MII_TX_CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-MII_TX_CLK     |    9.265|         |         |         |
-i_clk_50mhz    |    9.265|         |         |         |
+MII_TX_CLK     |    9.566|         |         |         |
+i_clk_50mhz    |    9.566|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock i_clk_50mhz
@@ -126,13 +126,13 @@ Clock to Setup on destination clock i_clk_50mhz
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-MII_RX_CLK     |    7.180|         |         |         |
-MII_TX_CLK     |    9.265|         |         |         |
-i_clk_50mhz    |   16.472|         |         |         |
+MII_RX_CLK     |    7.091|         |         |         |
+MII_TX_CLK     |    9.566|         |         |         |
+i_clk_50mhz    |   16.470|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Mon Dec 22 14:00:13 2025 
+Analysis completed Mon Jan 19 16:01:52 2026 
 --------------------------------------------------------------------------------
 
 Trace Settings:

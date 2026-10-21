@@ -4,14 +4,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.00 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.00 secs
  
 --> 
@@ -108,63 +108,81 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/utility.vhd" in Library ethernet_mac.
-Architecture utility of Entity utility is up to date.
+Package <utility> compiled.
+Package body <utility> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/crc.vhd" in Library ethernet_mac.
-Architecture crc of Entity crc is up to date.
+Package <crc> compiled.
+Package body <crc> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet_types.vhd" in Library ethernet_mac.
+Package <ethernet_types> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim_types.vhd" in Library ethernet_mac.
-Architecture miim_types of Entity miim_types is up to date.
+Package <miim_types> compiled.
+Package body <miim_types> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/crc32.vhd" in Library ethernet_mac.
-Architecture crc32 of Entity crc32 is up to date.
+Package <crc32> compiled.
+Package body <crc32> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim_registers.vhd" in Library ethernet_mac.
-Architecture miim_registers of Entity miim_registers is up to date.
+Package <miim_registers> compiled.
+Package body <miim_registers> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/framing_common.vhd" in Library ethernet_mac.
-Architecture framing_common of Entity framing_common is up to date.
+Package <framing_common> compiled.
+Package body <framing_common> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/reset_generator.vhd" in Library ethernet_mac.
-Architecture rtl of Entity reset_generator is up to date.
+Entity <reset_generator> compiled.
+Entity <reset_generator> (Architecture <rtl>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/single_signal_synchronizer.vhd" in Library ethernet_mac.
+Entity <single_signal_synchronizer> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/mii_gmii.vhd" in Library ethernet_mac.
-Architecture rtl of Entity mii_gmii is up to date.
+Entity <mii_gmii> compiled.
+Entity <mii_gmii> (Architecture <rtl>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/mii_gmii_io.vhd" in Library ethernet_mac.
+Entity <mii_gmii_io> compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/framing.vhd" in Library ethernet_mac.
-Architecture rtl of Entity framing is up to date.
+Entity <framing> compiled.
+Entity <framing> (Architecture <rtl>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim.vhd" in Library ethernet_mac.
-Architecture rtl of Entity miim is up to date.
+Entity <miim> compiled.
+Entity <miim> (Architecture <rtl>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/miim_control.vhd" in Library ethernet_mac.
-Architecture rtl of Entity miim_control is up to date.
+Entity <miim_control> compiled.
+Entity <miim_control> (Architecture <rtl>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mlp/Controller_FSM.vhd" in Library work.
-Entity <controller_fsm> compiled.
-Entity <controller_fsm> (Architecture <behavioral>) compiled.
+Entity <Controller_FSM> compiled.
+Entity <Controller_FSM> (Architecture <Behavioral>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" in Library work.
 Entity <weight_rom> compiled.
-Entity <weight_rom> (Architecture <behavioral>) compiled.
+Entity <weight_rom> (Architecture <Behavioral>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mlp/MAC_Unit.vhd" in Library work.
-Architecture behavioral of Entity mac_unit is up to date.
+Entity <MAC_Unit> compiled.
+Entity <MAC_Unit> (Architecture <Behavioral>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mlp/PingPong_RAM.vhd" in Library work.
-Entity <pingpong_ram> compiled.
-Entity <pingpong_ram> (Architecture <behavioral>) compiled.
+Entity <PingPong_RAM> compiled.
+Entity <PingPong_RAM> (Architecture <Behavioral>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/single_signal_synchronizer_simple.vhd" in Library ethernet_mac.
-Architecture simple of Entity single_signal_synchronizer is up to date.
+Entity <single_signal_synchronizer> (Architecture <simple>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mii_gmii_io_simple.vhd" in Library ethernet_mac.
-Architecture simple of Entity mii_gmii_io is up to date.
+Entity <mii_gmii_io> (Architecture <simple>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/ethernet_mac/ethernet.vhd" in Library ethernet_mac.
-Architecture rtl of Entity ethernet is up to date.
+Entity <ethernet> compiled.
+Entity <ethernet> (Architecture <rtl>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/top.vhd" in Library work.
-Architecture behavioral of Entity ethernet_top is up to date.
+Entity <ethernet_top> compiled.
+Entity <ethernet_top> (Architecture <Behavioral>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/mlp/mlp.vhd" in Library work.
-Architecture behavioral of Entity mlp is up to date.
+Entity <mlp> compiled.
+Entity <mlp> (Architecture <Behavioral>) compiled.
 Compiling vhdl file "/home/ise/ISE_146/ethernet/main.vhd" in Library work.
 Entity <main> compiled.
-Entity <main> (Architecture <behavioral>) compiled.
+Entity <main> (Architecture <Behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
-Analyzing hierarchy for entity <main> in library <work> (architecture <behavioral>).
+Analyzing hierarchy for entity <main> in library <work> (architecture <Behavioral>).
 
-Analyzing hierarchy for entity <ethernet_top> in library <work> (architecture <behavioral>).
+Analyzing hierarchy for entity <ethernet_top> in library <work> (architecture <Behavioral>).
 
-Analyzing hierarchy for entity <mlp> in library <work> (architecture <behavioral>).
+Analyzing hierarchy for entity <mlp> in library <work> (architecture <Behavioral>).
 
 Analyzing hierarchy for entity <ethernet> in library <ethernet_mac> (architecture <rtl>) with generics.
 	MIIM_CLOCK_DIVIDER = 20
@@ -173,14 +191,14 @@ Analyzing hierarchy for entity <ethernet> in library <ethernet_mac> (architectur
 	MIIM_POLL_WAIT_TICKS = 10000000
 	MIIM_RESET_WAIT_TICKS = 2500000
 
-Analyzing hierarchy for entity <Controller_FSM> in library <work> (architecture <behavioral>).
+Analyzing hierarchy for entity <Controller_FSM> in library <work> (architecture <Behavioral>).
 
-Analyzing hierarchy for entity <weight_rom> in library <work> (architecture <behavioral>) with generics.
+Analyzing hierarchy for entity <weight_rom> in library <work> (architecture <Behavioral>) with generics.
 	DATA_WIDTH = 16
 
-Analyzing hierarchy for entity <MAC_Unit> in library <work> (architecture <behavioral>).
+Analyzing hierarchy for entity <MAC_Unit> in library <work> (architecture <Behavioral>).
 
-Analyzing hierarchy for entity <PingPong_RAM> in library <work> (architecture <behavioral>) with generics.
+Analyzing hierarchy for entity <PingPong_RAM> in library <work> (architecture <Behavioral>) with generics.
 	DEPTH = 64
 	WIDTH = 16
 
@@ -207,10 +225,10 @@ Analyzing hierarchy for entity <miim_control> in library <ethernet_mac> (archite
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
-Analyzing Entity <main> in library <work> (Architecture <behavioral>).
+Analyzing Entity <main> in library <work> (Architecture <Behavioral>).
 Entity <main> analyzed. Unit <main> generated.
 
-Analyzing Entity <ethernet_top> in library <work> (Architecture <behavioral>).
+Analyzing Entity <ethernet_top> in library <work> (Architecture <Behavioral>).
 WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 205: Unconnected output port 'mii_tx_er_o' of component 'ethernet'.
 WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 205: Unconnected output port 'gmii_gtx_clk_o' of component 'ethernet'.
 WARNING:Xst:753 - "/home/ise/ISE_146/ethernet/top.vhd" line 205: Unconnected output port 'rgmii_tx_ctl_o' of component 'ethernet'.
@@ -254,15 +272,13 @@ Analyzing generic Entity <miim_control> in library <ethernet_mac> (Architecture 
 	RESET_WAIT_TICKS = 2500000
 Entity <miim_control> analyzed. Unit <miim_control> generated.
 
-Analyzing Entity <mlp> in library <work> (Architecture <behavioral>).
-WARNING:Xst:819 - "/home/ise/ISE_146/ethernet/mlp/mlp.vhd" line 259: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <o_class_result>
+Analyzing Entity <mlp> in library <work> (Architecture <Behavioral>).
 Entity <mlp> analyzed. Unit <mlp> generated.
 
-Analyzing Entity <Controller_FSM> in library <work> (Architecture <behavioral>).
+Analyzing Entity <Controller_FSM> in library <work> (Architecture <Behavioral>).
 Entity <Controller_FSM> analyzed. Unit <Controller_FSM> generated.
 
-Analyzing generic Entity <weight_rom> in library <work> (Architecture <behavioral>).
+Analyzing generic Entity <weight_rom> in library <work> (Architecture <Behavioral>).
 	DATA_WIDTH = 16
 WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 322: Index value(s) does not match array range, simulation mismatch.
 WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 325: Index value(s) does not match array range, simulation mismatch.
@@ -277,10 +293,10 @@ WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 331: Inde
 WARNING:Xst:790 - "/home/ise/ISE_146/ethernet/mlp/weight_rom.vhd" line 332: Index value(s) does not match array range, simulation mismatch.
 Entity <weight_rom> analyzed. Unit <weight_rom> generated.
 
-Analyzing Entity <MAC_Unit> in library <work> (Architecture <behavioral>).
+Analyzing Entity <MAC_Unit> in library <work> (Architecture <Behavioral>).
 Entity <MAC_Unit> analyzed. Unit <MAC_Unit> generated.
 
-Analyzing generic Entity <PingPong_RAM> in library <work> (Architecture <behavioral>).
+Analyzing generic Entity <PingPong_RAM> in library <work> (Architecture <Behavioral>).
 	DEPTH = 64
 	WIDTH = 16
 Entity <PingPong_RAM> analyzed. Unit <PingPong_RAM> generated.
@@ -738,11 +754,14 @@ WARNING:Xst:646 - Signal <weight_addr> is assigned but never used. This unconnec
 WARNING:Xst:646 - Signal <mac_valid> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <bias_addr> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 64x16-bit dual-port RAM <Mram_input_ram> for signal <input_ram>.
+    Found 4x3-bit ROM for signal <o_led$mux0001> created at line 265.
+    Found 3-bit register for signal <o_led>.
     Found 16-bit comparator greatequal for signal <activated_result$cmp_ge0000> created at line 229.
     Found 16-bit register for signal <input_rd_data>.
     Summary:
 	inferred   1 RAM(s).
-	inferred  16 D-type flip-flop(s).
+	inferred   1 ROM(s).
+	inferred  19 D-type flip-flop(s).
 	inferred   1 Comparator(s).
 Unit <mlp> synthesized.
 
@@ -817,11 +836,12 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 3
  64x16-bit dual-port RAM                               : 3
-# ROMs                                                 : 6
+# ROMs                                                 : 7
  16x122-bit ROM                                        : 1
  16x16-bit ROM                                         : 1
  32x16-bit ROM                                         : 1
  32x244-bit ROM                                        : 1
+ 4x3-bit ROM                                           : 1
  4x7-bit ROM                                           : 1
  64x16-bit ROM                                         : 1
 # Multipliers                                          : 2
@@ -846,13 +866,13 @@ Macro Statistics
  24-bit up counter                                     : 1
  4-bit up counter                                      : 1
  5-bit up counter                                      : 1
-# Registers                                            : 102
+# Registers                                            : 103
  1-bit register                                        : 68
  11-bit register                                       : 1
  14-bit register                                       : 2
  16-bit register                                       : 7
  2-bit register                                        : 4
- 3-bit register                                        : 3
+ 3-bit register                                        : 4
  32-bit register                                       : 2
  4-bit register                                        : 1
  40-bit register                                       : 1
@@ -1090,17 +1110,22 @@ INFO:Xst:3226 - The RAM <mlp_inst/pp_ram_inst/Mram_ram_a> will be implemented as
     -----------------------------------------------------------------------
 Unit <main> synthesized (advanced).
 
+Synthesizing (advanced) Unit <mlp>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_o_led_mux0001> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+Unit <mlp> synthesized (advanced).
+
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
 # RAMs                                                 : 3
  64x16-bit dual-port block RAM                         : 3
-# ROMs                                                 : 6
+# ROMs                                                 : 7
  16x122-bit ROM                                        : 1
  16x16-bit ROM                                         : 1
  32x16-bit ROM                                         : 1
  32x244-bit ROM                                        : 1
+ 4x3-bit ROM                                           : 1
  4x7-bit ROM                                           : 1
  64x16-bit ROM                                         : 1
 # Multipliers                                          : 1
@@ -1123,8 +1148,8 @@ Macro Statistics
  24-bit up counter                                     : 1
  4-bit up counter                                      : 1
  5-bit up counter                                      : 1
-# Registers                                            : 416
- Flip-Flops                                            : 416
+# Registers                                            : 419
+ Flip-Flops                                            : 419
 # Comparators                                          : 19
  11-bit comparator greater                             : 1
  11-bit comparator less                                : 2
@@ -1278,8 +1303,6 @@ WARNING:Xst:2677 - Node <mlp_inst/mac_inst/valid_reg> of sequential type is unco
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 65.
-FlipFlop mlp_inst/fsm_inst/input_counter_3 has been replicated 1 time(s)
-FlipFlop mlp_inst/fsm_inst/layer_counter_1 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -1287,8 +1310,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 373
- Flip-Flops                                            : 373
+# Registers                                            : 374
+ Flip-Flops                                            : 374
 
 =========================================================================
 
@@ -1321,28 +1344,28 @@ Cell Usage :
 #      GND                         : 1
 #      INV                         : 15
 #      LUT1                        : 46
-#      LUT2                        : 126
-#      LUT2_D                      : 26
-#      LUT2_L                      : 5
-#      LUT3                        : 764
-#      LUT3_D                      : 174
-#      LUT3_L                      : 44
-#      LUT4                        : 3091
-#      LUT4_D                      : 241
-#      LUT4_L                      : 387
+#      LUT2                        : 132
+#      LUT2_D                      : 25
+#      LUT2_L                      : 3
+#      LUT3                        : 767
+#      LUT3_D                      : 178
+#      LUT3_L                      : 42
+#      LUT4                        : 3074
+#      LUT4_D                      : 243
+#      LUT4_L                      : 394
 #      MUXCY                       : 132
 #      MUXF5                       : 813
 #      MUXF6                       : 16
 #      VCC                         : 1
 #      XORCY                       : 96
-# FlipFlops/Latches                : 373
+# FlipFlops/Latches                : 374
 #      FD                          : 22
 #      FDC                         : 9
 #      FDCE                        : 5
 #      FDE                         : 158
 #      FDP                         : 7
-#      FDR                         : 58
-#      FDRE                        : 95
+#      FDR                         : 56
+#      FDRE                        : 98
 #      FDRS                        : 13
 #      FDRSE                       : 1
 #      FDS                         : 1
@@ -1365,8 +1388,8 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                     2551  out of   4656    54%  
- Number of Slice Flip Flops:            373  out of   9312     4%  
+ Number of Slices:                     2550  out of   4656    54%  
+ Number of Slice Flip Flops:            374  out of   9312     4%  
  Number of 4 input LUTs:               4919  out of   9312    52%  
  Number of IOs:                          30
  Number of bonded IOBs:                  26  out of    232    11%  
@@ -1395,7 +1418,7 @@ Clock Information:
 ---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-------+
 Clock Signal                                                                                             | Clock buffer(FF name)                                                 | Load  |
 ---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-------+
-i_clk_50mhz                                                                                              | IBUF+BUFG                                                             | 277   |
+i_clk_50mhz                                                                                              | IBUF+BUFG                                                             | 278   |
 MII_RX_CLK                                                                                               | BUFGP                                                                 | 31    |
 ethernet_top_inst/ethernet_inst/tx_clock1(ethernet_top_inst/ethernet_inst/mii_gmii_io_inst/clock_tx_o1:O)| BUFG(*)(ethernet_top_inst/ethernet_inst/sync_tx_reset_inst/signal_tmp)| 68    |
 ---------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-------+
@@ -1430,7 +1453,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'i_clk_50mhz'
   Clock period: 15.845ns (frequency: 63.111MHz)
-  Total number of paths / destination ports: 111401 / 540
+  Total number of paths / destination ports: 111379 / 544
 -------------------------------------------------------------------------
 Delay:               15.845ns (Levels of Logic = 30)
   Source:            mlp_inst/pp_ram_inst/Mram_ram_a (RAM)
@@ -1494,7 +1517,7 @@ Delay:               8.538ns (Levels of Logic = 6)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDE:C->Q             13   0.591   1.062  ethernet_top_inst/ethernet_inst/framing_inst/rx_mac_address_byte_1 (ethernet_top_inst/ethernet_inst/framing_inst/rx_mac_address_byte_1)
-     LUT4:I1->O            1   0.704   0.424  ethernet_top_inst/ethernet_inst/framing_inst/rx_state_FSM_FFd2-In91_SW0 (N441)
+     LUT4:I1->O            1   0.704   0.424  ethernet_top_inst/ethernet_inst/framing_inst/rx_state_FSM_FFd2-In91_SW0 (N443)
      LUT4:I3->O            1   0.704   0.455  ethernet_top_inst/ethernet_inst/framing_inst/rx_state_FSM_FFd2-In91 (ethernet_top_inst/ethernet_inst/framing_inst/rx_state_FSM_FFd2-In91)
      LUT3:I2->O            1   0.704   0.595  ethernet_top_inst/ethernet_inst/framing_inst/rx_state_FSM_FFd2-In100 (ethernet_top_inst/ethernet_inst/framing_inst/rx_state_FSM_FFd2-In100)
      LUT4:I0->O            1   0.704   0.455  ethernet_top_inst/ethernet_inst/framing_inst/rx_state_FSM_FFd2-In256 (ethernet_top_inst/ethernet_inst/framing_inst/rx_state_FSM_FFd2-In256)
@@ -1507,10 +1530,10 @@ Delay:               8.538ns (Levels of Logic = 6)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'ethernet_top_inst/ethernet_inst/tx_clock1'
-  Clock period: 11.492ns (frequency: 87.019MHz)
-  Total number of paths / destination ports: 5342 / 129
+  Clock period: 11.632ns (frequency: 85.971MHz)
+  Total number of paths / destination ports: 5247 / 129
 -------------------------------------------------------------------------
-Delay:               11.492ns (Levels of Logic = 8)
+Delay:               11.632ns (Levels of Logic = 8)
   Source:            ethernet_top_inst/ethernet_inst/framing_inst/tx_state_FSM_FFd3 (FF)
   Destination:       ethernet_top_inst/ethernet_inst/framing_inst/tx_frame_check_sequence_8 (FF)
   Source Clock:      ethernet_top_inst/ethernet_inst/tx_clock1 rising
@@ -1521,22 +1544,22 @@ Delay:               11.492ns (Levels of Logic = 8)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDCE:C->Q            37   0.591   1.439  ethernet_top_inst/ethernet_inst/framing_inst/tx_state_FSM_FFd3 (ethernet_top_inst/ethernet_inst/framing_inst/tx_state_FSM_FFd3)
-     LUT4_D:I0->LO         1   0.704   0.135  ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<2>21 (N2028)
-     LUT3:I2->O            1   0.704   0.455  ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<6>38 (ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<6>38)
-     LUT4:I2->O            3   0.704   0.706  ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<6>50 (ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<6>50)
+     LUT4_D:I0->O          1   0.704   0.595  ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<2>21 (ethernet_top_inst/ethernet_inst/framing_inst/N106)
+     LUT4_L:I0->LO         1   0.704   0.135  ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<6>45 (ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<6>45)
+     LUT3:I2->O            3   0.704   0.706  ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<6>49 (ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<6>49)
      LUT3:I0->O            1   0.704   0.499  ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<6>69 (ethernet_top_inst/ethernet_inst/framing_inst/data_out_mux0004<6>)
      LUT4:I1->O           10   0.704   1.057  ethernet_top_inst/ethernet_inst/framing_inst/Mxor_new_crc6_xor0014_Result1 (ethernet_top_inst/ethernet_inst/framing_inst/new_crc6_xor0014)
      LUT2_D:I0->O          3   0.704   0.535  ethernet_top_inst/ethernet_inst/framing_inst/Mmux_tx_frame_check_sequence_mux00003911 (ethernet_top_inst/ethernet_inst/framing_inst/N84)
-     LUT4_L:I3->LO         1   0.704   0.135  ethernet_top_inst/ethernet_inst/framing_inst/Mmux_tx_frame_check_sequence_mux0000441_SW0 (N679)
+     LUT4_L:I3->LO         1   0.704   0.135  ethernet_top_inst/ethernet_inst/framing_inst/Mmux_tx_frame_check_sequence_mux0000441_SW0 (N675)
      LUT4:I2->O            1   0.704   0.000  ethernet_top_inst/ethernet_inst/framing_inst/Mmux_tx_frame_check_sequence_mux0000441 (ethernet_top_inst/ethernet_inst/framing_inst/tx_frame_check_sequence_mux0000<8>)
      FDE:D                     0.308          ethernet_top_inst/ethernet_inst/framing_inst/tx_frame_check_sequence_8
     ----------------------------------------
-    Total                     11.492ns (6.531ns logic, 4.961ns route)
-                                       (56.8% logic, 43.2% route)
+    Total                     11.632ns (6.531ns logic, 5.101ns route)
+                                       (56.1% logic, 43.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'i_clk_50mhz'
-  Total number of paths / destination ports: 253 / 245
+  Total number of paths / destination ports: 254 / 246
 -------------------------------------------------------------------------
 Offset:              5.997ns (Levels of Logic = 3)
   Source:            i_reset_n (PAD)
@@ -1577,7 +1600,7 @@ Offset:              2.898ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'i_clk_50mhz'
-  Total number of paths / destination ports: 83 / 10
+  Total number of paths / destination ports: 77 / 10
 -------------------------------------------------------------------------
 Offset:              10.186ns (Levels of Logic = 7)
   Source:            ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/data_bit_position_0 (FF)
@@ -1590,9 +1613,9 @@ Offset:              10.186ns (Levels of Logic = 7)
     ----------------------------------------  ------------
      FDE:C->Q             12   0.591   1.040  ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/data_bit_position_0 (ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/data_bit_position_0)
      LUT4:I1->O            2   0.704   0.451  ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux000046 (ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux000046)
-     LUT4:I3->O            1   0.704   0.000  ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089_F (N1505)
+     LUT4:I3->O            1   0.704   0.000  ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089_F (N1517)
      MUXF5:I0->O           1   0.321   0.455  ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089 (ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux000089)
-     LUT4:I2->O            1   0.704   0.499  ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000138_SW0 (N699)
+     LUT4:I2->O            1   0.704   0.499  ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000138_SW0 (N697)
      LUT4:I1->O            1   0.704   0.000  ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux00001802 (ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux00001801)
      MUXF5:I0->O           1   0.321   0.420  ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000180_f5 (ethernet_top_inst/ethernet_inst/miim_gen.miim_inst/mdio_io_mux0000)
      IOBUF:I->IO               3.272          MDIO_IOBUF (MDIO)
@@ -1641,15 +1664,15 @@ Offset:              4.745ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 542.00 secs
-Total CPU time to Xst completion: 122.08 secs
+Total REAL time to Xst completion: 222.00 secs
+Total CPU time to Xst completion: 79.26 secs
  
 --> 
 
 
-Total memory usage is 979744 kilobytes
+Total memory usage is 980832 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  285 (   0 filtered)
-Number of infos    :    9 (   0 filtered)
+Number of warnings :  284 (   0 filtered)
+Number of infos    :   10 (   0 filtered)
 
